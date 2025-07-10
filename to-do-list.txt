@@ -1,8 +1,5 @@
-SOON: 
-- ❗️change bg color (lighter)
-- ❗️figure out why the author.jpg won't show up
-- ❗️add description or something on blog homepage
-- ❗️fix colors and css layout
+SOON:
+- ❗️fix colors and css layout (meh it's tolerable for now)
 
 Blog: only blog posts
 - Add multiple toggle pages in blog.html once i have too many blogs

@@ -3,8 +3,8 @@
 }
 
 :root {
-    --bg: #e8e5dc;
-    --post-bg: #f0f0ee;
+    --bg: #f6f2ea;
+    --post-bg: #f4f4f4;
     --text: #212121;
     --dark-text: #000000;
     --btn: #D6CDC6;
@@ -12,6 +12,7 @@
     --btn-active: #CCBEB5;
     --link: #913F3A;
     --link-hover: #cb605a;
+    --decorate: #d26d68;
 }
 
 html {
@@ -65,8 +66,24 @@ a:active {
 
 .header {
     font-size: 2rem;
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+
+#top-header {
     margin-top: 65px;
-    margin-bottom: 20px;
+}
+
+.description {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.flex {
+    display: flex;
+    width: 100%;
+    margin-top: 15px;
+    justify-content: center;
 }
 
 section {
