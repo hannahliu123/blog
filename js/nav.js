@@ -22,5 +22,5 @@ navLinks.addEventListener("click", (event) => {
 });
 
 logo.addEventListener("click", () => {
-    window.location.assign("index.html");
+    window.location.href = "https://byhannahliu.com/";
 });
