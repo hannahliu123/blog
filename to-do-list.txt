@@ -1,7 +1,6 @@
 Update all areas of this new repo to match the previous version
 
-Blog: only blog posts       FIREBASE! (firestore database)
-- Set up subdomain for blogs❗
+Blog: only blog posts
 - Add multiple toggle pages in blog.html once i have too many blogs
 - fix colors and css layout
 - filters? or just different sections as a whole? related posts? tags?

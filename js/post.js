@@ -50,7 +50,7 @@ async function showPost(post) {
         <h1 class="title">${post.title}</h1>
         <div class="details">
             <div class="author">
-                <img src="blog-photos/author.jpg" class="author-img" alt="Author Image">
+                <img src="/blog-photos/author.jpg" class="author-img" alt="Author Image">
                 <p class="author-name">Hannah Liu</p>
             </div>
             <p class="date">${post.date}</p>
@@ -60,7 +60,6 @@ async function showPost(post) {
 
     post.content.forEach(block => {
         if (block.startsWith("/blog-photos/")) { // image
-            console.log("hello123");
             const img = document.createElement("img");
             img.src = block;
             img.classList.add("content-img");
