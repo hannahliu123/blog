@@ -1,4 +1,5 @@
-Update all areas of this new repo to match the previous version
+- change bg color (lighter)
+- fugure out why the author.jpg won't show up ❗️
 
 Blog: only blog posts
 - Add multiple toggle pages in blog.html once i have too many blogs
