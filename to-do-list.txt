@@ -1,9 +1,11 @@
-- change bg color (lighter)
-- fugure out why the author.jpg won't show up ❗️
+SOON: 
+- ❗️change bg color (lighter)
+- ❗️figure out why the author.jpg won't show up
+- ❗️add description or something on blog homepage
+- ❗️fix colors and css layout
 
 Blog: only blog posts
 - Add multiple toggle pages in blog.html once i have too many blogs
-- fix colors and css layout
 - filters? or just different sections as a whole? related posts? tags?
 - update title of html file using firebase & js
 - Blog Ideas: (actually write the blog posts themselves...)
