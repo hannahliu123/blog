@@ -35,7 +35,6 @@ async function loadPost() {
 
     if (!docSnapshop.exists()) {
         console.log("No document found.");
-        console.log(docSnapshop);
         return;
     }
 

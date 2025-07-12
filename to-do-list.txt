@@ -2,6 +2,7 @@ SOON:
 - ❗️fix colors and css layout (meh it's tolerable for now)
 
 Blog: only blog posts
+- add commenting
 - Add multiple toggle pages in blog.html once i have too many blogs
 - filters? or just different sections as a whole? related posts? tags?
 - update title of html file using firebase & js
