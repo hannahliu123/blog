@@ -49,6 +49,13 @@ button:active {
     background-color: var(--btn-active);
 }
 
+.decorate {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--decorate);
+}
+
 a:link, a:visited {
     color: var(--link);
     text-decoration: none;
