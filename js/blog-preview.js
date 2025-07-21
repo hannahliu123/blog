@@ -49,7 +49,7 @@ async function getPosts() {
             </div>
         `;
         
-        postsContainer.appendChild(postDiv);
+        postsContainer.prepend(postDiv);
 
         // Event Listeners for Posts
         const clickable = postDiv.querySelectorAll(".click");

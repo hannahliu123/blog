@@ -1,12 +1,9 @@
-SOON:
-- ❗️fix post ordering (sort by timestamp??)
-- ❗️fix colors and css layout (meh it's tolerable for now)
-
-Blog: only blog posts
+- fix post ordering (sort by timestamp?? i mean it's fine now but firestore can be really... annoying)
 - add commenting
 - Add multiple toggle pages in blog.html once i have too many blogs
 - filters? or just different sections as a whole? related posts? tags?
 - update title of html file using firebase & js
+
 - Blog Ideas: (actually write the blog posts themselves...)
     - Reading
         => The series that got me back into reading (RED RISING 🔥)
