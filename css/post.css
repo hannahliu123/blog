@@ -5,6 +5,10 @@
 :root {
     --bg: #f6f2ea;
     --text: #212121;
+    --spoiler: #918f89;
+    --spoiler-hover: #918f89c5;
+    --spoiler-transparent: #918f8939;
+    --spoiler-transparent-hover: #918f8953;
     --link: #913F3A;
     --link-hover: #cb605a;
 }
@@ -34,6 +38,35 @@ a:hover {
 a:active {
     color: var(--link);
     text-decoration: none;
+}
+
+i {
+    margin-right: 2px;
+}
+
+.header i {
+    margin-right: 5px;
+}
+
+.spoiler {
+    cursor: pointer;
+    background-color: var(--spoiler);
+    color: var(--spoiler);
+    padding: 0 3px;
+}
+
+.spoiler:hover {
+    background-color: var(--spoiler-hover);
+}
+
+.spoiler.active {
+    background-color: var(--spoiler-transparent);
+    color: var(--text);
+    border: none;
+}
+
+.spoiler.active:hover {
+    background-color: var(--spoiler-transparent-hover);
 }
 
 .title {
@@ -80,6 +113,10 @@ a:active {
     margin: 10px 0;
 }
 
+.rating {
+    margin-left: -30px;
+}
+
 @media screen and (min-width: 768px) {
     body {
         font-size: 1.5rem;
@@ -119,6 +156,10 @@ a:active {
 
     .content-text {
         text-indent: 45px;
+    }
+
+    .rating {
+        margin-left: -45px;
     }
 }
 
@@ -161,6 +202,10 @@ a:active {
 
     .content-text {
         text-indent: 40px;
+    }
+
+    .rating {
+        margin-left: -40px;
     }
 }
 

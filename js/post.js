@@ -66,15 +66,23 @@ async function showPost(post) {
         } else if (block.startsWith("HEADER")) {      // header
             const header = document.createElement("h2");
             let str = block;
-            header.textContent = str.slice(6);
+            header.innerHTML = str.slice(6);
             header.classList.add("header");
             container.appendChild(header);
         } else {    // text
             const p = document.createElement("p");
-            p.textContent = block;
+            p.innerHTML = block;
             p.classList.add("content-text");
             container.appendChild(p);
         }
+    });
+
+    const spoilers = document.querySelectorAll(".spoiler");
+
+    spoilers.forEach(spoiler => {
+        spoiler.addEventListener("click", () => {
+            spoiler.classList.toggle("active");
+        })
     });
 }
 
