@@ -63,6 +63,12 @@ async function showPost(post) {
             img.src = block;
             img.classList.add("content-img");
             container.appendChild(img);
+        } else if (block.startsWith("HEADER")) {      // header
+            const header = document.createElement("h2");
+            let str = block;
+            header.textContent = str.slice(6);
+            header.classList.add("header");
+            container.appendChild(header);
         } else {    // text
             const p = document.createElement("p");
             p.textContent = block;

@@ -1,4 +1,5 @@
 SOON:
+- ❗️responsive css
 - ❗️fix colors and css layout (meh it's tolerable for now)
 
 Blog: only blog posts
@@ -8,7 +9,6 @@ Blog: only blog posts
 - update title of html file using firebase & js
 - Blog Ideas: (actually write the blog posts themselves...)
     - Reading
-        => Summer reading/Favorite Books
         => The series that got me back into reading (RED RISING 🔥)
         => Red Rising (Lightbringer) I HATE LYSANDER SO MUCH HE CAN DIE IN A HOLE OMG DARROW SHOULD'VE KILLED HIM WHEN HE HAD THE CHANCE ARGHHHHH
     - How to build you own website in highschool (+ benefits of having one ykyk, mention how long mine has taken me hehe)

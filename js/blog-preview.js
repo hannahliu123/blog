@@ -40,7 +40,7 @@ async function getPosts() {
         const words = previewText.split(" ");
         previewText = words.slice(0, 25).join(" ");
         postDiv.innerHTML = `
-            <img src="${post.coverImg}" alt="Cover Image" class="post-cover-img click">
+            <div class="post-image-div"><img src="${post.coverImg}" alt="Cover Image" class="post-cover-img click"></div>
             <div class="post-description">
                 <h2 class="post-title click">${post.title}</h2>
                 <p class="post-date click">${post.date}</p>

@@ -13,6 +13,7 @@
     --link: #913F3A;
     --link-hover: #cb605a;
     --decorate: #d26d68;
+    --post-img-bg: #dcd9d3;
 }
 
 html {
@@ -135,7 +136,109 @@ section {
 }
 
 @media screen and (min-width: 768px) {
+    body {
+        font-size: 1.5rem;
+        padding: 40px;
+    }
+
+    button {
+        font-size: 1.75rem;
+        padding: 15px 25px;
+    }
+
+    .header {
+        font-size: 3rem;
+        margin-top: 100px;
+    }
+
+    section {
+        scroll-margin-top: 120px;
+    }
+
+    #top-header {
+        margin-top: 90px;
+    }
+    
+    .flex {
+        margin-top: 25px;
+    }
+
+    #posts-container {
+        gap: 25px;
+    } 
+
+    .post {
+        padding: 25px;
+    }
+
+    .post-cover-img {
+        margin-bottom: 10px;
+    }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1024px) {
+    body {
+        font-size: 1rem;
+        padding: 60px;
+    }
+
+    button {
+        font-size: 1.1rem;
+        padding: 10px 15px;
+    }
+
+    .header {
+        font-size: 2rem;
+        margin-top: 45px;
+    }
+
+    section {
+        scroll-margin-top: 90px;   /* accounts for nav bar's space */
+    }
+
+    #top-header {
+        margin-top: 50px;
+    }
+    
+    .flex {
+        margin-top: 20px;
+    }
+
+    #posts-container {
+        gap: 20px;
+    }
+
+    .post {
+        flex-direction: row;
+        gap: 35px;
+        padding: 20px 25px;
+        height: auto;
+        padding: 25px;
+    }
+
+    .post-image-div {
+        flex-basis: 0;
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        background-color: var(--post-img-bg);
+        overflow: hidden;
+    }
+
+    .post-cover-img {
+        object-fit: contain;
+        margin-bottom: 0;
+    }
+
+    .post-description {
+        flex-basis: 0;
+        flex-grow: 1;
+        padding: 5px 0;
+    }
+}
+
+@media screen and (min-width: 1024px) and (orientation: landscape) {
+    body {
+        padding: 60px;
+    }
 }
