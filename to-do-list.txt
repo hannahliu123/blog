@@ -1,5 +1,5 @@
 SOON:
-- ❗️responsive css
+- ❗️fix post ordering (sort by timestamp??)
 - ❗️fix colors and css layout (meh it's tolerable for now)
 
 Blog: only blog posts
