@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "blog-byhannahliu-com", 
     "public": ".",
     "ignore": [
       "firebase.json",
