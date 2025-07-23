@@ -1,13 +1,18 @@
-- fix post ordering (sort by timestamp?? i mean it's fine now but firestore can be really... annoying)
-- add commenting
+- Add table of contents to blog posts?
+- Add how many people have seen each post?
+-❗add commenting
+    - name
+    - reply
+    - profile picture (later)
+    - likes/dislikes (later)
 - Add multiple toggle pages in blog.html once i have too many blogs
 - filters? or just different sections as a whole? related posts? tags?
-- update title of html file using firebase & js
+- ❗update title of html file using firebase & js
 
 - Blog Ideas: (actually write the blog posts themselves...)
     - Reading
         => The series that got me back into reading (RED RISING 🔥)
         => Red Rising (Lightbringer) I HATE LYSANDER SO MUCH HE CAN DIE IN A HOLE OMG DARROW SHOULD'VE KILLED HIM WHEN HE HAD THE CHANCE ARGHHHHH
-    - How to build you own website in highschool (+ benefits of having one ykyk, mention how long mine has taken me hehe)
+    - How to build your own website in highschool (+ benefits of having one ykyk, mention how long mine has taken me hehe)
     - Academic-related/coding posts (like how to study for AP exam or something)
     - What I learned from coding my own website from scratch in high school (firebase framework, html, css, animation, discusting color theory, js, github, debugging/troubleshooting, organization, how fun coding is :D)

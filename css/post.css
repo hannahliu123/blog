@@ -3,7 +3,7 @@
 }
 
 :root {
-    --bg: #f6f2ea;
+    --bg: #f2f1ee;
     --text: #212121;
     --spoiler: #918f89;
     --spoiler-hover: #85837c;
@@ -112,12 +112,7 @@ i {
 }
 
 .content-text {
-    text-indent: 30px;
-    margin: 10px 0;
-}
-
-.rating {
-    margin-left: -30px;
+    margin: 15px 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -156,14 +151,6 @@ i {
     .cover-img, .content-img {
         margin-bottom: 10px;
     }
-
-    .content-text {
-        text-indent: 45px;
-    }
-
-    .rating {
-        margin-left: -45px;
-    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -201,14 +188,6 @@ i {
 
     .cover-img, .content-img {
         margin-bottom: 5px;
-    }
-
-    .content-text {
-        text-indent: 40px;
-    }
-
-    .rating {
-        margin-left: -40px;
     }
 }
 
