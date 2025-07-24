@@ -2,9 +2,11 @@
 - Add how many people have seen each post?
 -❗add commenting
     - name
-    - reply
+    - reply (and cancel reply)
     - profile picture (later)
     - likes/dislikes (later)
+    - date of comment?
+    - a way to notify me of comments?
 - Add multiple toggle pages in blog.html once i have too many blogs
 - filters? or just different sections as a whole? related posts? tags?
 - ❗update title of html file using firebase & js
@@ -16,3 +18,7 @@
     - How to build your own website in highschool (+ benefits of having one ykyk, mention how long mine has taken me hehe)
     - Academic-related/coding posts (like how to study for AP exam or something)
     - What I learned from coding my own website from scratch in high school (firebase framework, html, css, animation, discusting color theory, js, github, debugging/troubleshooting, organization, how fun coding is :D)
+Tags:
+    - Computer Science
+    - Hobbies
+    - Fencing

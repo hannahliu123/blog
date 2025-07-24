@@ -29,6 +29,7 @@
                 <div id="nav-links">
                     <ul>
                         <li><a href="#" class="nav-link">Top</a></li>
+                        <li><a href="#comments-section" class="nav-link">Comments</a></li>
                         <li><a href="#page-bottom" class="nav-link">Bottom</a></li>
                     </ul>
                     <div id="divider"></div>
@@ -63,6 +64,26 @@
             </div>
         </nav>
         <div id="post-container"></div>
+        <section id="comments-section">
+            <h2 class="header" id="comments-header">Comments (0)</h2>
+            <div id="comments-container"></div>
+            <form action="" id="comments-form">
+                <h3>Leave a Comment</h3>
+                <p>Please fill out each of the fields below before submitting.</p>
+                <div class="input-container">
+                    <label for="name">NAME</label><br>
+                    <input type="text" id="name" name="name" required><br>
+                </div>
+                <div class="input-container">
+                    <label for="text">COMMENT</label><br>
+                    <textarea id="text" name="text" required></textarea><br>
+                </div>
+                <div id="submit-container">
+                    <input type="submit" value="Post Comment">
+                </div>
+                <input type="hidden" id="parentId" value="">
+            </form>
+        </section>
         <footer class="footer" id="page-bottom">
             <div class="contacts">
                 <a href="https://github.com/hannahliu123">
@@ -87,5 +108,6 @@
         </footer>
         <script src="js/nav.js"></script>
         <script type="module" src="js/post.js"></script>
+        <script type="module" src="js/comments.js"></script>
     </body>
 </html>

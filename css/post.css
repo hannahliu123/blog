@@ -11,6 +11,9 @@
     --spoiler-transparent-hover: #918f8939;
     --link: #913F3A;
     --link-hover: #cb605a;
+    --btn: #D6CDC6;
+    --btn-hover: #D6C8BF;
+    --btn-active: #CCBEB5;
 }
 
 html {
@@ -23,6 +26,18 @@ body {
     color: var(--text);
     margin: 0;
     padding: 20px;
+}
+
+pre {   /* for comments */
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+button, input, textarea, pre {
+    font-family: "Outfit", sans-serif;
 }
 
 a:link, a:visited {
@@ -113,6 +128,120 @@ i {
 
 .content-text {
     margin: 15px 0;
+}
+
+.comment {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.comment.reply {        /* indent for replies */
+    margin-left: 20px;
+}
+
+.comment p {
+    margin: 0;
+}
+
+.comment-left {
+    display: flex;
+    align-items: flex-start;
+}
+
+.comment-left img {
+    width: 40px;
+    height: 40px;
+}
+
+.comment-right {
+    flex-grow: 1;
+}
+
+.reply-div {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    margin-top: 5px;
+}
+
+.reply-button {
+    cursor: pointer;
+    font-size: 0.75rem;
+    border: none;
+}
+
+.reply-button:hover {
+    color: var(--link-hover);
+}
+
+.reply-button:active {
+    color: var(--link);
+}
+
+.comment.reply .reply-button {
+    visibility: hidden;
+}
+
+.comment-right hr {
+    width: 100%;
+    margin: 0;
+}
+
+.comment-text {
+    width: 100%;
+    margin: 5px 0;
+    word-wrap: normal;
+}
+
+#comments-form {
+    margin-top: 30px;
+}
+
+#comments-form h3 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+#comments-form p {
+    margin: 3px 0;
+}
+
+.input-container {
+    margin: 10px 0 15px 0;
+}
+
+.input-container input,
+.input-container textarea {
+    width: 100%;
+    border: 1px solid var(--text);
+}
+
+.input-container label {
+    font-weight: 300;
+}
+
+#submit-container {
+    margin-top: 10px;
+}
+
+#submit-container input {
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: 300;
+    padding: 7px 12px;
+    background-color: var(--btn);
+    border: none;
+}
+
+#submit-container input:hover {
+    background-color: var(--btn-hover);
+}
+
+#submit-container input:active {
+    background-color: var(--btn-active);
 }
 
 @media screen and (min-width: 768px) {
