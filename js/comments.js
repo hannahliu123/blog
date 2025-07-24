@@ -48,7 +48,7 @@ form.addEventListener("submit", async (event) => {
     const text = document.getElementById("text").value.trim();
     const parentId = document.getElementById("parentId").value || "null";
 
-    if (!name || !text) {   // just in case but shouldn't need
+    if (!name || !text) {
         alert("Please fill in all fields.");
         return;
     }
@@ -86,7 +86,7 @@ async function renderAllComments() {
         allComments.push(doc.data());
     });
 
-    allComments.sort((a, b) => {    // sort all comments by date
+    allComments.sort((a, b) => {    // sort all comments by date (earliest -> most recent)
         const timeA = a.date;
         const timeB = b.date;
 
@@ -126,7 +126,7 @@ async function renderComment(comment, parentCommentSibling) {
     `;
 
     if (comment.parentId === "null") {
-        commentsContainer.prepend(commentDiv);
+        commentsContainer.prepend(commentDiv);  // always add to beginning
 
         // render replies
         const replies = allComments.filter(c => c.parentId === comment.id);
@@ -135,7 +135,7 @@ async function renderComment(comment, parentCommentSibling) {
             console.log(parentCommentSibling);
             renderComment(reply, parentCommentSibling);
         });
-    } else {  // is a reply
+    } else {  // is a reply (neet to add in opposite order)
         commentDiv.classList.add("reply");
         commentsContainer.insertBefore(commentDiv, parentCommentSibling);
     }

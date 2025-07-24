@@ -210,12 +210,13 @@ i {
 }
 
 .input-container {
-    margin: 10px 0 15px 0;
+    margin: 10px 0;
 }
 
 .input-container input,
 .input-container textarea {
     width: 100%;
+    margin-top: 2px;
     border: 1px solid var(--text);
 }
 
@@ -223,8 +224,12 @@ i {
     font-weight: 300;
 }
 
-#submit-container {
-    margin-top: 10px;
+#name {
+    margin-bottom: 5px;
+}
+
+#text {
+    height: 110px;
 }
 
 #submit-container input {
