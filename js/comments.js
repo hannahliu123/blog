@@ -28,57 +28,8 @@ const commentsRef = collection(db, "posts", postID, "comments");
 const commentsContainer = document.getElementById("comments-container");
 const form = document.getElementById("comments-form");
 const commentsHeader = document.getElementById("comments-header");
-const replyBtn = document.querySelectorAll(".reply-button");
 let commentsCnt = 0;
 let allComments = [];
-
-replyBtn.forEach(btn => {
-    btn.addEventListener("click", () => {
-        // set parentId
-        // Leave a Comment -> Reply to xxx
-        // Tab content forwards (the actual reply & the form)
-        // hide reply button for the new comment that is replying
-    });
-});
-
-form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    
-    const name = document.getElementById("name").value.trim();
-    const text = document.getElementById("text").value.trim();
-    const parentId = document.getElementById("parentId").value || "null";
-
-    if (!name || !text) {
-        alert("Please fill in all fields.");
-        return;
-    }
-
-    try {
-        const docData = {
-            name: name,
-            text: text,
-            parentId: parentId,
-            date: serverTimestamp()
-        };
-
-        const newDocRef = await addDoc(commentsRef, docData);
-        await updateDoc(newDocRef, {id: newDocRef.id});
-
-        const docSnapshot = await getDoc(newDocRef);
-
-        if (parentId === "null") renderComment(docSnapshot.data(), null);    // show new comment
-        else renderComment(docSnapshot.data(), parentId);
-
-        commentsHeader.textContent = "Comments (" + commentsCnt + ")";
-
-        form.reset();
-        document.getElementById("parentId").value = "";   // reset for future comments
-        alert("Comment posted!");
-    } catch (error) {
-        console.error("Failed to post comment: ", error);
-        alert("Error posting comment.")
-    }
-});
 
 async function renderAllComments() {
     const querySnapshot = await getDocs(commentsRef);
@@ -128,6 +79,17 @@ async function renderComment(comment, parentCommentSibling) {
     if (comment.parentId === "null") {
         commentsContainer.prepend(commentDiv);  // always add to beginning
 
+        // Event listener for reply button
+        const commentContainer = document.getElementById(comment.id);
+        const replyBtn = commentContainer.querySelector(".reply-button");
+        console.log(replyBtn.parentNode.parentNode.parentNode.id);
+        replyBtn.addEventListener("click", () => {
+            // set parentId (replyBtn.parentNode.parentNode.parentNode.id)
+            // Leave a Comment -> Reply to xxx
+            // Tab content forwards (the actual reply & the form)
+            // hide reply button for the new comment that is replying
+        });
+
         // render replies
         const replies = allComments.filter(c => c.parentId === comment.id);
         const parentCommentSibling = document.getElementById(comment.id).nextSibling;
@@ -135,13 +97,52 @@ async function renderComment(comment, parentCommentSibling) {
             console.log(parentCommentSibling);
             renderComment(reply, parentCommentSibling);
         });
-    } else {  // is a reply (neet to add in opposite order)
+    } else {  // is a reply (need to add in opposite order)
         commentDiv.classList.add("reply");
         commentsContainer.insertBefore(commentDiv, parentCommentSibling);
     }
 }
 
 renderAllComments();
+
+form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    
+    const name = document.getElementById("name").value.trim();
+    const text = document.getElementById("text").value.trim();
+    const parentId = document.getElementById("parentId").value || "null";
+
+    if (!name || !text) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    try {
+        const docData = {
+            name: name,
+            text: text,
+            parentId: parentId,
+            date: serverTimestamp()
+        };
+
+        const newDocRef = await addDoc(commentsRef, docData);
+        await updateDoc(newDocRef, {id: newDocRef.id});
+
+        const docSnapshot = await getDoc(newDocRef);
+
+        if (parentId === "null") renderComment(docSnapshot.data(), null);    // show new comment
+        else renderComment(docSnapshot.data(), parentId);
+
+        commentsHeader.textContent = "Comments (" + commentsCnt + ")";
+
+        form.reset();
+        document.getElementById("parentId").value = "";   // reset for future comments
+        alert("Comment posted!");
+    } catch (error) {
+        console.error("Failed to post comment: ", error);
+        alert("Error posting comment.")
+    }
+});
 
 // Authentication - UHHH let's do this later
 const auth = getAuth(app);
