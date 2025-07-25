@@ -33,6 +33,15 @@ async function getPosts() {
         postsArray.push(doc.data());
     });
 
+    postsArray.sort((a, b) => {    // sort all comments by date (earliest -> most recent)
+        const timeA = a.timestamp;
+        const timeB = b.timestamp;
+
+        if (timeA < timeB) return -1;
+        if (timeA > timeB) return 1;
+        return 0;
+    });
+
     postsArray.forEach(post => {
         const postDiv = document.createElement("div");
         postDiv.classList.add("post");

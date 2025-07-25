@@ -38,6 +38,7 @@ pre {   /* for comments */
 
 button, input, textarea, pre {
     font-family: "Outfit", sans-serif;
+    color: var(--text);
 }
 
 a:link, a:visited {
@@ -170,6 +171,7 @@ i {
     cursor: pointer;
     font-size: 0.75rem;
     border: none;
+    background-color: transparent;
 }
 
 .reply-button:hover {
@@ -238,6 +240,7 @@ i {
     font-weight: 300;
     padding: 7px 12px;
     background-color: var(--btn);
+    color: var(--text);
     border: none;
 }
 
