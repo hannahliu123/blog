@@ -158,6 +158,11 @@ i {
 
 .comment-right {
     flex-grow: 1;
+    overflow: hidden;
+}
+
+.comment-name {
+    word-wrap: break-word;
 }
 
 .reply-div {
@@ -167,18 +172,21 @@ i {
     margin-top: 5px;
 }
 
-.reply-button {
+.reply-button,
+#cancel-btn {
     cursor: pointer;
     font-size: 0.75rem;
     border: none;
     background-color: transparent;
 }
 
-.reply-button:hover {
+.reply-button:hover,
+#cancel-btn:hover {
     color: var(--link-hover);
 }
 
-.reply-button:active {
+.reply-button:active,
+#cancel-btn:active {
     color: var(--link);
 }
 
@@ -191,6 +199,10 @@ i {
     margin: 0;
 }
 
+.comment.reply hr {
+    width: calc(100% - 20px);
+}
+
 .comment-text {
     width: 100%;
     margin: 5px 0;
@@ -201,10 +213,28 @@ i {
     margin-top: 30px;
 }
 
-#comments-form h3 {
+#comments-form.reply {
+    margin: 20px 0 40px 23px;
+}
+
+#input-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#input-header {
     font-size: 1.4rem;
     font-weight: 400;
     margin: 0;
+}
+
+#cancel-btn {
+    visibility: hidden;
+}
+
+#comments-form.reply #cancel-btn {
+    visibility: visible;
 }
 
 #comments-form p {

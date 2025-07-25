@@ -26,10 +26,19 @@ const postID = params.get("id");
 const commentsRef = collection(db, "posts", postID, "comments");
 
 const commentsContainer = document.getElementById("comments-container");
-const form = document.getElementById("comments-form");
+const commentsForm = document.getElementById("comments-form");
 const commentsHeader = document.getElementById("comments-header");
+const inputHeader = document.getElementById("input-header");
+const cancelBtn = document.getElementById("cancel-btn");
 let commentsCnt = 0;
 let allComments = [];
+
+function cancelReply() {
+    commentsForm.classList.remove("reply");
+    inputHeader.textContent = "Leave a Comment";
+    document.getElementById("parentId").value = "";
+    commentsContainer.after(commentsForm);
+}
 
 async function renderAllComments() {
     const querySnapshot = await getDocs(commentsRef);
@@ -66,7 +75,7 @@ async function renderComment(comment, parentCommentSibling) {
             <img src="../icons/user-icon.png" alt="profile-picture">
         </div>
         <div class="comment-right">
-            <p>${comment.name.toUpperCase()}</p>
+            <p class="comment-name">${comment.name.toUpperCase()}</p>
             <div class="reply-div">
                 <p>${date.toLocaleDateString()}</p>
                 <button class="reply-button">REPLY</button>
@@ -78,24 +87,31 @@ async function renderComment(comment, parentCommentSibling) {
 
     if (comment.parentId === "null") {
         commentsContainer.prepend(commentDiv);  // always add to beginning
+        const currComment = document.getElementById(comment.id);
 
         // Event listener for reply button
         const commentContainer = document.getElementById(comment.id);
         const replyBtn = commentContainer.querySelector(".reply-button");
-        console.log(replyBtn.parentNode.parentNode.parentNode.id);
         replyBtn.addEventListener("click", () => {
-            // set parentId (replyBtn.parentNode.parentNode.parentNode.id)
-            // Leave a Comment -> Reply to xxx
-            // Tab content forwards (the actual reply & the form)
-            // hide reply button for the new comment that is replying
+            commentsForm.classList.add("reply");
+            currComment.after(commentsForm);
+
+            let parentName = comment.name.toLowerCase();    // get the name of user you're replying to in good format
+            const firstLetter = parentName.charAt(0).toUpperCase();
+            const spaceIndex = parentName.indexOf(" ");
+            if (spaceIndex === -1)  parentName = parentName.substring(1);
+            else parentName = parentName.substring(1, spaceIndex);
+            if (parentName.length >= 15) parentName = parentName.substring(1, 15) + "...";
+            inputHeader.textContent = "Reply to " + firstLetter + parentName;
+
+            document.getElementById("parentId").value = replyBtn.parentNode.parentNode.parentNode.id;   // next comment is considered a reply
         });
 
         // render replies
         const replies = allComments.filter(c => c.parentId === comment.id);
-        const parentCommentSibling = document.getElementById(comment.id).nextSibling;
+        const parentCommentSib = currComment.nextSibling;
         replies.forEach(reply => {
-            console.log(parentCommentSibling);
-            renderComment(reply, parentCommentSibling);
+            renderComment(reply, parentCommentSib);
         });
     } else {  // is a reply (need to add in opposite order)
         commentDiv.classList.add("reply");
@@ -105,7 +121,7 @@ async function renderComment(comment, parentCommentSibling) {
 
 renderAllComments();
 
-form.addEventListener("submit", async (event) => {
+commentsForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     
     const name = document.getElementById("name").value.trim();
@@ -131,11 +147,18 @@ form.addEventListener("submit", async (event) => {
         const docSnapshot = await getDoc(newDocRef);
 
         if (parentId === "null") renderComment(docSnapshot.data(), null);    // show new comment
-        else renderComment(docSnapshot.data(), parentId);
+        else {
+            let parentCommentSib = document.getElementById(parentId).nextSibling;
+            console.log(parentCommentSib);
+            while (parentCommentSib !== null && parentCommentSib.classList.contains("reply")) parentCommentSib = parentCommentSib.nextSibling;
+            console.log(parentCommentSib);
+            renderComment(docSnapshot.data(), parentCommentSib);
+            cancelReply();
+        }
 
         commentsHeader.textContent = "Comments (" + commentsCnt + ")";
 
-        form.reset();
+        commentsForm.reset();
         document.getElementById("parentId").value = "";   // reset for future comments
         alert("Comment posted!");
     } catch (error) {
@@ -143,6 +166,8 @@ form.addEventListener("submit", async (event) => {
         alert("Error posting comment.")
     }
 });
+
+cancelBtn.addEventListener("click", cancelReply);
 
 // Authentication - UHHH let's do this later
 const auth = getAuth(app);
