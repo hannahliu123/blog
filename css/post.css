@@ -14,6 +14,7 @@
     --btn: #D6CDC6;
     --btn-hover: #D6C8BF;
     --btn-active: #CCBEB5;
+    --author-tag: #e6e5e2;
 }
 
 html {
@@ -98,6 +99,10 @@ i {
     margin-top: 30px;
 }
 
+section {
+    scroll-margin-top: 80px;
+}
+
 .details {
     display: flex;
     justify-content: space-between;
@@ -140,6 +145,7 @@ i {
 
 .comment.reply {        /* indent for replies */
     margin-left: 20px;
+    width: calc(100% - 20px);
 }
 
 .comment p {
@@ -165,13 +171,46 @@ i {
     word-wrap: break-word;
 }
 
+.delete-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.delete-button {
+    visibility: hidden;
+}
+
+.delete-button.active {
+    visibility: visible;
+}
+
+.name-div {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.author-tag {
+    border: 1px solid var(--text);
+    border-radius: 5px;
+    font-size: 0.65rem;
+    padding: 1px 4px;
+    background-color: var(--author-tag);
+}
+
+.author-tag.hidden {
+    visibility: hidden;
+}
+
 .reply-div {
     display: flex;
     justify-content: space-between;
     font-size: 0.75rem;
-    margin-top: 5px;
+    margin-top: 3px;
 }
 
+.delete-button,
 .reply-button,
 #cancel-btn {
     cursor: pointer;
@@ -180,11 +219,13 @@ i {
     background-color: transparent;
 }
 
+.delete-button:hover,
 .reply-button:hover,
 #cancel-btn:hover {
     color: var(--link-hover);
 }
 
+.delete-button:active,
 .reply-button:active,
 #cancel-btn:active {
     color: var(--link);
@@ -199,14 +240,15 @@ i {
     margin: 0;
 }
 
-.comment.reply hr {
-    width: calc(100% - 20px);
-}
-
 .comment-text {
     width: 100%;
     margin: 5px 0;
     word-wrap: normal;
+}
+
+#text {
+    height: 10rem;
+    margin-bottom: 10px;
 }
 
 #comments-form {
@@ -226,7 +268,7 @@ i {
 #input-header {
     font-size: 1.4rem;
     font-weight: 400;
-    margin: 0;
+    margin: 0 0 3px 0;
 }
 
 #cancel-btn {
@@ -238,11 +280,17 @@ i {
 }
 
 #comments-form p {
-    margin: 3px 0;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+#name-email-container {
+    display: flex;
+    flex-direction: column;
 }
 
 .input-container {
-    margin: 10px 0;
+    margin: 15px 0 0 0;
 }
 
 .input-container input,
@@ -250,18 +298,16 @@ i {
     width: 100%;
     margin-top: 2px;
     border: 1px solid var(--text);
+    font-size: 1rem;
 }
 
 .input-container label {
     font-weight: 300;
 }
 
-#name {
+#name, #email {
     margin-bottom: 5px;
-}
-
-#text {
-    height: 110px;
+    height: 2rem;
 }
 
 #submit-container input {
@@ -355,6 +401,16 @@ i {
 
     .cover-img, .content-img {
         margin-bottom: 5px;
+    }
+
+    #name-email-container {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    #name-container,
+    #email-container {
+        flex-grow: 1;
     }
 }
 

@@ -47,7 +47,7 @@
                         <a href="https://byhannahliu.com">
                             <img src="icons/logo.png" alt="Personal Website">
                         </a>
-                        <a href="mailto:hannah.liu2010@gmail.com">
+                        <a href="mailto:byhannahliu@gmail.com">
                             <img src="icons/gmail.png" alt="Email">
                         </a>
                         <a href="https://www.instagram.com/hannahliu413/">
@@ -72,13 +72,20 @@
                     <h3 id="input-header">Leave a Comment</h3>
                     <a id="cancel-btn">Cancel Reply</a>
                 </div>
-                <p>Please fill out each of the fields below before submitting.</p>
-                <div class="input-container">
-                    <label for="name">NAME</label><br>
-                    <input type="text" id="name" name="name" required><br>
+                <p>You will be able to delete your comments within 10 minutes of posting it.</p>
+                <p>Fields marked with * are required. If you have any questions, feel free to reach out to me <a href="mailto:byhannahliu@gmail.com">here</a>.</p>
+                <div id="name-email-container">
+                    <div class="input-container" id="name-container">
+                        <label for="name">NAME *</label><br>
+                        <input type="text" id="name" name="name" required><br>
+                    </div>
+                    <div class="input-container" id="email-container">
+                        <label for="email">EMAIL</label><br>
+                        <input type="email" id="email" name="email"><br>
+                    </div>
                 </div>
                 <div class="input-container">
-                    <label for="text">COMMENT</label><br>
+                    <label for="text">COMMENT *</label><br>
                     <textarea id="text" name="text" required></textarea><br>
                 </div>
                 <div id="submit-container">
@@ -95,7 +102,7 @@
                 <a href="https://byhannahliu.com">
                     <img src="icons/logo.png" alt="Personal Website">
                 </a>
-                <a href="mailto:hannah.liu2010@gmail.com">
+                <a href="mailto:byhannahliu@gmail.com">
                     <img src="icons/gmail.png" alt="Email">
                 </a>
                 <a href="https://www.instagram.com/hannahliu413/">
@@ -112,5 +119,6 @@
         <script src="js/nav.js"></script>
         <script type="module" src="js/post.js"></script>
         <script type="module" src="js/comments.js"></script>
+        <script type="module" src="js/login.js"></script>
     </body>
 </html>

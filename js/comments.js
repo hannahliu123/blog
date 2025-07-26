@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
-import { getFirestore, doc, updateDoc, addDoc, getDoc, getDocs, collection, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+import { getFirestore, doc, deleteDoc, updateDoc, addDoc, getDoc, getDocs, collection, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 
 // Your web app's Firebase configuration
@@ -18,6 +18,7 @@ const firebaseConfig = {
 // Initialize Firebase & Firestore db
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);       // my connected Firestore database
+const auth = getAuth(app);
 
 // Extract id
 const queryString = window.location.search;     // section of URL after ?
@@ -32,6 +33,25 @@ const inputHeader = document.getElementById("input-header");
 const cancelBtn = document.getElementById("cancel-btn");
 let commentsCnt = 0;
 let allComments = [];
+
+let deleteId = localStorage.getItem("deleteId") || null;
+if (!deleteId) {
+    deleteId = crypto.randomUUID();     // generate a random id
+    localStorage.setItem("deleteId", deleteId);
+}
+
+async function deleteComment(commentId) {
+    const result = confirm("Are you sure you want to delete this comment?");
+    if (result) {
+        commentsCnt -= 1;
+        await deleteDoc(doc(db, "posts", postID, "comments", commentId));
+        
+        const deleteComment = document.getElementById(commentId);
+        deleteComment.remove();
+        commentsHeader.textContent = "Comments (" + commentsCnt + ")";
+        alert("Comment deleted.")
+    }
+}
 
 function cancelReply() {
     commentsForm.classList.remove("reply");
@@ -75,7 +95,13 @@ async function renderComment(comment, parentCommentSibling) {
             <img src="../icons/user-icon.png" alt="profile-picture">
         </div>
         <div class="comment-right">
-            <p class="comment-name">${comment.name.toUpperCase()}</p>
+            <div class="delete-div">
+                <div class="name-div">
+                    <p class="comment-name">${comment.name.toUpperCase()}</p>
+                    <p class="author-tag hidden">Author</p>
+                </div>
+                <button class="delete-button">DELETE</button>
+            </div>
             <div class="reply-div">
                 <p>${date.toLocaleDateString()}</p>
                 <button class="reply-button">REPLY</button>
@@ -90,8 +116,7 @@ async function renderComment(comment, parentCommentSibling) {
         const currComment = document.getElementById(comment.id);
 
         // Event listener for reply button
-        const commentContainer = document.getElementById(comment.id);
-        const replyBtn = commentContainer.querySelector(".reply-button");
+        const replyBtn = currComment.querySelector(".reply-button");
         replyBtn.addEventListener("click", () => {
             commentsForm.classList.add("reply");
             currComment.after(commentsForm);
@@ -117,6 +142,25 @@ async function renderComment(comment, parentCommentSibling) {
         commentDiv.classList.add("reply");
         commentsContainer.insertBefore(commentDiv, parentCommentSibling);
     }
+
+    const currComment = document.getElementById(comment.id);
+    // Check if the user that posted the comment is the author (me)
+    const isAuthor = comment.uid === "uKH0rr37KOS8Ot9zudxZioKiY2G2" || comment.uid === "AlvucUZGjVRmKejRMu4vRHtB7q32";
+    if (isAuthor) {
+        const authorTag = currComment.querySelector(".author-tag");
+        authorTag.classList.remove("hidden");
+    }
+
+    // Check whether to show delete button (author can always delete)
+    const currUid = auth.currentUser? auth.currentUser.uid : null;
+    const userDeleteId = localStorage.getItem("deleteId");
+    if (currUid !== null || (userDeleteId === comment.deleteId && Date.now() - comment.date.seconds*1000 < 600000)) {
+        // if the delete ids match and it's been less than 10 mins (600000ms)
+        const deleteBtn = currComment.querySelector(".delete-button");
+        deleteBtn.classList.add("active");
+        deleteBtn.addEventListener("click", () => deleteComment(comment.id));
+        if (currUid === null) setTimeout(deleteBtn.classList.remove("active"), 600000 - (Date.now() - comment.date.seconds*1000));
+    }
 }
 
 renderAllComments();
@@ -125,11 +169,13 @@ commentsForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     
     const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim() || null;
     const text = document.getElementById("text").value.trim();
     const parentId = document.getElementById("parentId").value || "null";
+    const uid = auth.currentUser? auth.currentUser.uid : null;
 
     if (!name || !text) {
-        alert("Please fill in all fields.");
+        alert("Please fill in all fields marked with *");
         return;
     }
 
@@ -138,6 +184,9 @@ commentsForm.addEventListener("submit", async (event) => {
             name: name,
             text: text,
             parentId: parentId,
+            email: email,
+            deleteId: deleteId,
+            uid: uid,
             date: serverTimestamp()
         };
 
@@ -146,12 +195,11 @@ commentsForm.addEventListener("submit", async (event) => {
 
         const docSnapshot = await getDoc(newDocRef);
 
-        if (parentId === "null") renderComment(docSnapshot.data(), null);    // show new comment
-        else {
+        // show the new comment
+        if (parentId === "null") renderComment(docSnapshot.data(), null);    // top level
+        else {  // is a reply
             let parentCommentSib = document.getElementById(parentId).nextSibling;
-            console.log(parentCommentSib);
             while (parentCommentSib !== null && parentCommentSib.classList.contains("reply")) parentCommentSib = parentCommentSib.nextSibling;
-            console.log(parentCommentSib);
             renderComment(docSnapshot.data(), parentCommentSib);
             cancelReply();
         }
@@ -160,7 +208,7 @@ commentsForm.addEventListener("submit", async (event) => {
 
         commentsForm.reset();
         document.getElementById("parentId").value = "";   // reset for future comments
-        alert("Comment posted!");
+        alert("Comment posted! You have 10 minutes to delete your comment if necessary.");
     } catch (error) {
         console.error("Failed to post comment: ", error);
         alert("Error posting comment.")
@@ -170,7 +218,7 @@ commentsForm.addEventListener("submit", async (event) => {
 cancelBtn.addEventListener("click", cancelReply);
 
 // Authentication - UHHH let's do this later
-const auth = getAuth(app);
+
 
 onAuthStateChanged(auth, (user) => {
     if (user) {

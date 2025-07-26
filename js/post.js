@@ -1,7 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -43,6 +42,7 @@ async function loadPost() {
 }
 
 async function showPost(post) {
+    document.title = post.title;
     const container = document.getElementById("post-container");
 
     container.innerHTML = `
@@ -87,15 +87,3 @@ async function showPost(post) {
 }
 
 loadPost();
-
-// Authentication - UHHH let's do this later
-const auth = getAuth(app);
-
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        console.log("You are logged in!")
-        console.log("UID:", user.uid);
-    } else {
-        console.log("You are NOT logged in.")
-    }
-});

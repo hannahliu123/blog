@@ -1,12 +1,13 @@
 - Add table of contents to blog posts (to every header)
 - Add subheaders to blog posts?
 - add quotes to posts (different font)
--❗update title of html file using firebase & js
 -❗commenting
     - extra tag for me - author
     - profile picture (later)
     - likes/dislikes (later)
     - a way to notify me of comments
+    - delete (replies...?)
+    - add email to comment form and lets users delete their own posts
 
 - Blog Ideas: (actually write the blog posts themselves...)
     - Reading
@@ -25,4 +26,3 @@ Extra:
 - add limits to what you can enter in the comment boxes (patterns)
 - filters? or just different sections as a whole? related posts? tags?
 - Add multiple toggle pages in blog.html once i have too many blogs
-- add email to comment form and lets users delete their own posts
