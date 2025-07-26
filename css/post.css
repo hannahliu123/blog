@@ -100,14 +100,14 @@ i {
 }
 
 .header {
-    font-size: 1.75rem;
+    font-size: 1.85rem;
     margin: 0;
     margin-top: 30px;
 }
 
 .subheader {
     font-size: 1.25rem;
-    margin: 25px 0 5px 0;
+    margin: 20px 0 5px 0;
 }
 
 section {
@@ -351,8 +351,13 @@ section {
     }
 
     .header {
-        font-size: 2rem;
+        font-size: 2.5rem;
         margin-top: 40px;
+    }
+    
+    .subheader {
+        font-size: 2rem;
+        margin-top: 30px;
     }
 
     section {
@@ -380,17 +385,22 @@ section {
 @media screen and (min-width: 1024px) {
     body {
         font-size: 1rem;
-        padding: 60px;
+        padding: 10vw;
     }
 
     .title {
         font-size: 2rem;
-        margin-top: 45px;
+        margin-top: 0;
     }
 
     .header {
-        font-size: 1.5rem;
+        font-size: 1.85rem;
         margin-top: 40px;
+    }
+    
+    .subheader {
+        font-size: 1.25rem;
+        margin-top: 30px;
     }
 
     section {
@@ -422,11 +432,5 @@ section {
     #name-container,
     #email-container {
         flex-grow: 1;
-    }
-}
-
-@media screen and (min-width: 1024px) and (orientation: landscape) {
-    body {
-        padding: 60px;
     }
 }
