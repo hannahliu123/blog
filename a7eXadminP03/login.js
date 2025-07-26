@@ -1,7 +1,7 @@
 // ONLY FOR THE AUTHOR NOT FOR PUBLIC
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCs0tT5ACiOgNBkpmbgpt_9d92lfGexy0M",
@@ -29,4 +29,15 @@ loginForm.addEventListener("submit", async (event) => {
     } catch (error) {
         alert("Login Failed: " + error);
     }
+});
+
+const logOut = document.getElementById("log-out")
+logOut.addEventListener("click", () => {
+    signOut(auth)
+        .then(() => {
+            alert("Logged Out Successfully!");
+        })
+        .catch((error) => {
+            alert("Error Logging Out: " + error);
+        })
 });

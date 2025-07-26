@@ -159,7 +159,6 @@ async function renderComment(comment, parentCommentSibling) {
         const deleteBtn = currComment.querySelector(".delete-button");
         deleteBtn.classList.add("active");
         deleteBtn.addEventListener("click", () => deleteComment(comment.id));
-        if (currUid === null) setTimeout(deleteBtn.classList.remove("active"), 600000 - (Date.now() - comment.date.seconds*1000));
     }
 }
 
