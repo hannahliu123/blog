@@ -31,7 +31,7 @@ loginForm.addEventListener("submit", async (event) => {
     }
 });
 
-const logOut = document.getElementById("log-out")
+const logOut = document.getElementById("log-out");
 logOut.addEventListener("click", () => {
     signOut(auth)
         .then(() => {
