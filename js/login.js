@@ -16,11 +16,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// async function login(email, password) {
-//     try {
-//         const cred = await signInWithEmailAndPassword(auth, email, password);
-//         console.log("You are logged in! UID:", cred.user.uid);
-//     } catch (error) {
-//         console.log("Login Failed");
-//     }
-// }
+async function login(email, password) {
+    try {
+        const cred = await signInWithEmailAndPassword(auth, email, password);
+        console.log("You are logged in! UID:", cred.user.uid);
+    } catch (error) {
+        console.log("Login Failed:", error);
+    }
+}

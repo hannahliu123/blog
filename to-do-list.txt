@@ -1,5 +1,4 @@
 - Add table of contents to blog posts (to every header)
-- Add subheaders to blog posts?
 - add quotes to posts (different font)
 -❗commenting
     - extra tag for me - author

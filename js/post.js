@@ -69,6 +69,18 @@ async function showPost(post) {
             header.innerHTML = str.slice(6);
             header.classList.add("header");
             container.appendChild(header);
+        } else if (block.startsWith("SUBHEADER")) {      // subheader
+            const subheader = document.createElement("h3");
+            let str = block;
+            subheader.innerHTML = str.slice(9);
+            subheader.classList.add("subheader");
+            container.appendChild(subheader);
+        } else if (block.startsWith("CONTENTS")) {      // table of contents link
+            const contents = document.createElement("a");
+            let str = block;
+            contents.innerHTML = str.slice(8);
+            contents.classList.add("table-of-contents");
+            container.appendChild(contents);
         } else {    // text
             const p = document.createElement("p");
             p.innerHTML = block;
@@ -78,11 +90,17 @@ async function showPost(post) {
     });
 
     const spoilers = document.querySelectorAll(".spoiler");
-
     spoilers.forEach(spoiler => {
         spoiler.addEventListener("click", () => {
             spoiler.classList.toggle("active");
         })
+    });
+
+    const tableOfContents = document.querySelectorAll(".table-of-contents");
+    tableOfContents.forEach(link => {
+        link.addEventListener("click", () => {
+            ;
+        });
     });
 }
 
