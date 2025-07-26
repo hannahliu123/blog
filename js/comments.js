@@ -216,9 +216,7 @@ commentsForm.addEventListener("submit", async (event) => {
 
 cancelBtn.addEventListener("click", cancelReply);
 
-// Authentication - UHHH let's do this later
-
-
+// Authentication
 onAuthStateChanged(auth, (user) => {
     if (user) {
         console.log("You are logged in!")

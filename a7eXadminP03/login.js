@@ -1,7 +1,7 @@
 // ONLY FOR THE AUTHOR NOT FOR PUBLIC
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCs0tT5ACiOgNBkpmbgpt_9d92lfGexy0M",
@@ -41,3 +41,13 @@ logOut.addEventListener("click", () => {
             alert("Error Logging Out: " + error);
         })
 });
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        console.log("You are logged in!")
+        console.log("UID:", user.uid);
+    } else {
+        console.log("You are NOT logged in.")
+    }
+});
+
