@@ -57,6 +57,7 @@ async function showPost(post) {
         <img src="${post.coverImg}" class="cover-img" alt="Cover Image">
     `;
 
+    let headerId = 1;
     post.content.forEach(block => {
         if (block.startsWith("/blog-photos/")) { // image
             const img = document.createElement("img");
@@ -69,6 +70,8 @@ async function showPost(post) {
             header.innerHTML = str.slice(6);
             header.classList.add("header");
             container.appendChild(header);
+            header.id = headerId;
+            headerId += 1;
         } else if (block.startsWith("SUBHEADER")) {      // subheader
             const subheader = document.createElement("h3");
             let str = block;
@@ -96,11 +99,11 @@ async function showPost(post) {
         })
     });
 
+    let linkCount = 1;
     const tableOfContents = document.querySelectorAll(".table-of-contents");
     tableOfContents.forEach(link => {
-        link.addEventListener("click", () => {
-            ;
-        });
+        link.href = "#" + linkCount.toString();
+        linkCount += 1;
     });
 }
 
