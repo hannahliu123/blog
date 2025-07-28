@@ -351,6 +351,7 @@ section {
     background-color: var(--btn);
     color: var(--text);
     border: none;
+    margin-bottom: 20px;
 }
 
 #submit-container input:hover {
