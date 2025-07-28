@@ -41,6 +41,7 @@ if (!deleteId) {
 }
 
 async function deleteComment(commentId) {
+    alert('inside delete function. commentid:', commentId);
     const result = confirm("Are you sure you want to delete this comment?");
     if (result) {
         commentsCnt -= 1;
@@ -156,6 +157,7 @@ async function renderComment(comment, parentCommentSibling) {
     const userDeleteId = localStorage.getItem("deleteId");
     if (currUid !== null || (userDeleteId === comment.deleteId && Date.now() - comment.date.seconds*1000 < 600000)) {
         // if the delete ids match and it's been less than 10 mins (600000ms)
+        alert("adding delete button");
         const deleteBtn = currComment.querySelector(".delete-button");
         deleteBtn.classList.add("active");
         deleteBtn.addEventListener("click", () => deleteComment(comment.id));
