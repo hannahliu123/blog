@@ -41,6 +41,7 @@ if (!deleteId) {
 }
 
 async function deleteComment(commentId) {
+    alert("debugging message inside delete fucntion");
     const result = confirm("Are you sure you want to delete this comment?");
     if (result) {
         commentsCnt -= 1;
@@ -143,6 +144,7 @@ async function renderComment(comment, parentCommentSibling) {
         commentsContainer.insertBefore(commentDiv, parentCommentSibling);
     }
 
+    alert("debugging message before author");
     const currComment = document.getElementById(comment.id);
     // Check if the user that posted the comment is the author (me)
     const isAuthor = comment.uid === "uKH0rr37KOS8Ot9zudxZioKiY2G2" || comment.uid === "AlvucUZGjVRmKejRMu4vRHtB7q32";
@@ -151,6 +153,7 @@ async function renderComment(comment, parentCommentSibling) {
         authorTag.classList.remove("hidden");
     }
 
+    alert("debugging message before delete");
     // Check whether to show delete button (author can always delete)
     const currUid = auth.currentUser? auth.currentUser.uid : null;
     const userDeleteId = localStorage.getItem("deleteId");
@@ -158,6 +161,7 @@ async function renderComment(comment, parentCommentSibling) {
         // if the delete ids match and it's been less than 10 mins (600000ms)
         const deleteBtn = currComment.querySelector(".delete-button");
         deleteBtn.classList.add("active");
+        alert("debugging message before delete event listener");
         deleteBtn.addEventListener("click", () => deleteComment(comment.id));
     }
 }
@@ -166,6 +170,7 @@ renderAllComments();
 
 commentsForm.addEventListener("submit", async (event) => {
     event.preventDefault();
+    alert("submit button clicked (debugging)");
     
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim() || null;
@@ -189,6 +194,8 @@ commentsForm.addEventListener("submit", async (event) => {
             date: serverTimestamp()
         };
 
+        alert("DEBUGGING. Delete ID:" + deleteId);
+
         const newDocRef = await addDoc(commentsRef, docData);
         await updateDoc(newDocRef, {id: newDocRef.id});
 
@@ -204,9 +211,11 @@ commentsForm.addEventListener("submit", async (event) => {
         }
 
         commentsHeader.textContent = "Comments (" + commentsCnt + ")";
-
+        
         commentsForm.reset();
+        alert("debugging message 2");
         document.getElementById("parentId").value = "";   // reset for future comments
+        alert("debugging message 3");
         alert("Comment posted! You have 10 minutes to delete your comment if necessary.");
     } catch (error) {
         console.error("Failed to post comment: ", error);
