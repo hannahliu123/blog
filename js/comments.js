@@ -41,7 +41,9 @@ if (!deleteId) {
 }
 
 async function deleteComment(commentId) {
+    document.getElementById("debugging").textContent = "delete...?";
     const result = confirm("Are you sure you want to delete this comment?");
+    document.getElementById("debugging").textContent = "delete after...?";
     if (result) {
         commentsCnt -= 1;
         await deleteDoc(doc(db, "posts", postID, "comments", commentId));
@@ -51,6 +53,7 @@ async function deleteComment(commentId) {
         commentsHeader.textContent = "Comments (" + commentsCnt + ")";
         alert("Comment deleted.")
     }
+    document.getElementById("debugging").textContent = "done...";
 }
 
 function cancelReply() {
@@ -156,7 +159,7 @@ async function renderComment(comment, parentCommentSibling) {
     const userDeleteId = localStorage.getItem("deleteId");
     if (currUid !== null || (userDeleteId === comment.deleteId && Date.now() - comment.date.seconds*1000 < 600000)) {
         // if the delete ids match and it's been less than 10 mins (600000ms)
-        alert("adding delete button");
+        alert(currUid);
         const deleteBtn = currComment.querySelector(".delete-button");
         deleteBtn.classList.add("active");
         deleteBtn.addEventListener("click", () => {
