@@ -41,7 +41,6 @@ if (!deleteId) {
 }
 
 async function deleteComment(commentId) {
-    alert('inside delete function. commentid:', commentId);
     const result = confirm("Are you sure you want to delete this comment?");
     if (result) {
         commentsCnt -= 1;
@@ -160,7 +159,12 @@ async function renderComment(comment, parentCommentSibling) {
         alert("adding delete button");
         const deleteBtn = currComment.querySelector(".delete-button");
         deleteBtn.classList.add("active");
-        deleteBtn.addEventListener("click", () => deleteComment(comment.id));
+        deleteBtn.addEventListener("click", () => {
+            const commentId = deleteBtn.parentNode.parentNode.parentNode.id;
+            alert(comment.id === commentId);
+            // problem might be that comment.id isn't always available? just .parentNode or something to get the id based on the delete btn
+            deleteComment(commentId)
+        });
     }
 }
 
