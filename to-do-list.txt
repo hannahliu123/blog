@@ -2,6 +2,7 @@
 - add quotes to posts (different font)
 -❗commenting
     - likes/dislikes (later)
+    - add manual delete popup (ughhhhhhhh)
 
 - Blog Ideas: (actually write the blog posts themselves...)
     - Reading
