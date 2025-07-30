@@ -1,10 +1,4 @@
-- Add table of contents to blog posts (to every header)
-- add quotes to posts (different font)
--❗commenting
-    - likes/dislikes (later)
-    - add manual delete popup (ughhhhhhhh)
-
-- Blog Ideas: (actually write the blog posts themselves...)
+Blog Ideas: (actually write the blog posts themselves...)
     - Reading
         => The series that got me back into reading (RED RISING 🔥)
         => Red Rising (Lightbringer) I HATE LYSANDER SO MUCH HE CAN DIE IN A HOLE OMG DARROW SHOULD'VE KILLED HIM WHEN HE HAD THE CHANCE ARGHHHHH
@@ -21,4 +15,4 @@ Extra:
 - add limits to what you can enter in the comment boxes (patterns)
 - filters? or just different sections as a whole? related posts? tags?
 - Add multiple toggle pages in blog.html once i have too many blogs
-- a way to notify me of comments
+- commenting ikes/dislikes (later)

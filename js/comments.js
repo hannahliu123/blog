@@ -40,7 +40,7 @@ if (!deleteId) {
     localStorage.setItem("deleteId", deleteId);
 }
 
-async function deleteComment(commentId) {
+async function deleteComment(commentId, user, text) {
     const result = confirm("Are you sure you want to delete this comment?");
     if (result) {
         commentsCnt -= 1;
@@ -49,6 +49,7 @@ async function deleteComment(commentId) {
         const deleteComment = document.getElementById(commentId);
         deleteComment.remove();
         commentsHeader.textContent = "Comments (" + commentsCnt + ")";
+        updateLog(user, text, "delete comment")
         alert("Comment deleted.")
     }
 }
@@ -58,6 +59,24 @@ function cancelReply() {
     inputHeader.textContent = "Leave a Comment";
     document.getElementById("parentId").value = "";
     commentsContainer.after(commentsForm);
+}
+
+async function updateLog(user, text, desc) {
+    try {
+        const logsRef = collection(db, "logs");
+        const logData = {
+            type: desc,
+            postID: postID,
+            user: user, 
+            content: text,
+            timestamp: serverTimestamp(),
+        };
+
+        await addDoc(logsRef, logData); // use postID
+        console.log("Log was sucessfully updated!");
+    } catch (error) {
+        console.log("Failed to log new commment:", error);
+    }
 }
 
 async function renderAllComments() {
@@ -161,7 +180,7 @@ async function renderComment(comment, parentCommentSibling) {
         deleteBtn.addEventListener("click", () => {
             const commentId = deleteBtn.parentNode.parentNode.parentNode.id;
             // problem might be that comment.id isn't always available? just .parentNode or something to get the id based on the delete btn
-            deleteComment(commentId)
+            deleteComment(commentId, comment.name, comment.text)
         });
     }
 }
@@ -211,6 +230,7 @@ commentsForm.addEventListener("submit", async (event) => {
 
         commentsForm.reset();
         document.getElementById("parentId").value = "";   // reset for future comments
+        updateLog(name, text, "add comment");       // log comment
         alert("Comment posted! You have 10 minutes to delete your comment if necessary.");
     } catch (error) {
         console.error("Failed to post comment: ", error);
