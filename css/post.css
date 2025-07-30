@@ -15,6 +15,8 @@
     --btn-hover: #D6C8BF;
     --btn-active: #CCBEB5;
     --author-tag: #e6e5e2;
+    --quote-border: #d26d68;
+    --quote-bg: #e4dbda;
 }
 
 html {
@@ -123,24 +125,38 @@ section {
 }
 
 .quote {
-    border-left: 5px solid var(--text);
-    padding-left: 20px;
+    border-left: 5px solid var(--quote-border);
+    background-color: var(--quote-bg);
+    padding-left: 10px;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.quote-text {
-    margin: 0;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 20px 0 10px 0;
 }
 
 .big-quote {
-    font-size: 2rem;
+    font-size: 3.5rem;
+    margin: 0;
+    margin-top: -5px;
+    color: var(--quote-border);
 }
 
-.quote-credit {
-    align-self: flex-end;
+.quote-text {
+    flex-grow: 1;
     margin: 0;
+    padding: 15px 20px 15px 0;
+}
+
+.dropdown {
+    margin-bottom: 30px;
+}
+
+.dropdown-summary {
+    cursor: pointer;
+}
+
+.dropdown-text {
+    margin: 5px 0;
 }
 
 .author {
@@ -408,23 +424,23 @@ section {
 
 @media screen and (min-width: 1024px) {
     body {
-        font-size: 1rem;
+        font-size: 1.15rem;
         padding: 10vw;
     }
 
     .title {
-        font-size: 2rem;
+        font-size: 2.3rem;
         margin-top: 0;
     }
 
     .header {
-        font-size: 1.85rem;
+        font-size: 2rem;
         margin-top: 40px;
         scroll-margin-top: 90px;
     }
     
     .subheader {
-        font-size: 1.25rem;
+        font-size: 1.35rem;
         margin-top: 30px;
     }
 
@@ -437,12 +453,12 @@ section {
     }
 
     .author-img {
-        width: 30px;
-        height: 30px;
+        width: 35px;
+        height: 35px;
     }
 
     .author-name, .date {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 
     .cover-img, .content-img {

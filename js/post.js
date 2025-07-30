@@ -87,11 +87,8 @@ async function showPost(post) {
         } else if (block.startsWith("QUOTE")) {      // table of contents link
             const blockquote = document.createElement("blockquote");
             let quote = block;
-            const byIndex = quote.indexOf("QUOTEBY");
-            blockquote.innerHTML = `<p class="quote-text"><span class="big-quote">“</span>
-                                        ${quote.slice(5, byIndex)}
-                                    <span class="big-quote">”</span></p>
-                                    <p class="quote-credit">— ${quote.slice(byIndex+7)}</p>`;
+            blockquote.innerHTML = `<p class="big-quote">“</p>
+                                    <pre class="quote-text">${quote.slice(5)}</pre>`;
             blockquote.classList.add("quote");
             container.appendChild(blockquote);
         } else {    // text
