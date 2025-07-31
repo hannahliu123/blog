@@ -72,6 +72,23 @@ a:active {
     text-decoration: none;
 }
 
+#full-logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+#full-logo {
+    width: 60%;
+}
+
+hr {
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    height: 2px;
+}
+
 .header {
     font-size: 2rem;
     margin-top: 35px;
@@ -79,7 +96,7 @@ a:active {
 }
 
 #top-header {
-    margin-top: 65px;
+    margin-top: 30px;
 }
 
 .description {
@@ -146,6 +163,15 @@ section {
         padding: 15px 25px;
     }
 
+    #full-logo {
+        width: 55%;
+    }
+
+    hr {
+        width: calc(100% + 40px);
+        margin-left: -20px;
+    }
+
     .header {
         font-size: 3rem;
         margin-top: 100px;
@@ -156,7 +182,7 @@ section {
     }
 
     #top-header {
-        margin-top: 90px;
+        margin-top: 50px;
     }
     
     .flex {
@@ -180,11 +206,25 @@ section {
     body {
         font-size: 1rem;
         padding: 10vw;
+        padding-top: 60px;
     }
 
     button {
         font-size: 1.1rem;
         padding: 10px 15px;
+    }
+
+    #full-logo-container {
+        margin-top: 30px;
+    }
+
+    #full-logo {
+        width: 40%;
+    }
+
+    hr {
+        width: 90vw;
+        margin-left: -5vw;
     }
 
     .header {
@@ -197,7 +237,7 @@ section {
     }
 
     #top-header {
-        margin-top: 0;
+        margin-top: 40px;
     }
     
     .flex {

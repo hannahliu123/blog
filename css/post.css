@@ -97,7 +97,7 @@ i {
 
 .title {
     font-size: 2rem;
-    margin-top: 65px;
+    margin-top: 30px;
     margin-bottom: 15px;
 }
 
@@ -157,6 +157,23 @@ section {
 
 .dropdown-text {
     margin: 5px 0;
+}
+
+#full-logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+#full-logo {
+    width: 60%;
+}
+
+hr {
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    height: 2px;
 }
 
 .author {
@@ -386,7 +403,16 @@ section {
 
     .title {
         font-size: 3rem;
-        margin-top: 80px;
+        margin-top: 50px;
+    }
+
+    #full-logo {
+        width: 55%;
+    }
+
+    hr {
+        width: calc(100% + 40px);
+        margin-left: -20px;
     }
 
     .header {
@@ -426,21 +452,35 @@ section {
     body {
         font-size: 1.15rem;
         padding: 10vw;
+        padding-top: 60px;
     }
 
     .title {
         font-size: 2.3rem;
-        margin-top: 0;
+        margin-top: 40px;
+    }
+
+    #full-logo-container {
+        margin-top: 30px;
+    }
+
+    #full-logo {
+        width: 40%;
+    }
+
+    hr {
+        width: 90vw;
+        margin-left: -5vw;
     }
 
     .header {
-        font-size: 2rem;
+        font-size: 2.05rem;
         margin-top: 40px;
         scroll-margin-top: 90px;
     }
     
     .subheader {
-        font-size: 1.35rem;
+        font-size: 1.4rem;
         margin-top: 30px;
     }
 
