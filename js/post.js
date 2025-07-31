@@ -46,7 +46,7 @@ async function showPost(post) {
     const container = document.getElementById("post-container");
 
     container.innerHTML = `
-        <div id="full-logo-container"><img src="icons/full-logo.png" id="full-logo"></div><hr>
+        <div id="full-logo-container"><img src="icons/full-logo.png" id="full-logo" alt="byhannahliu logo"></div><hr>
         <h1 class="title">${post.title}</h1>
         <div class="details">
             <div class="author">
@@ -63,6 +63,7 @@ async function showPost(post) {
         if (block.startsWith("/blog-photos/")) { // image
             const img = document.createElement("img");
             img.src = block;
+            img.alt = "blog-post-image";
             img.classList.add("content-img");
             container.appendChild(img);
         } else if (block.startsWith("HEADER")) {      // header
