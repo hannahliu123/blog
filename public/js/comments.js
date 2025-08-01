@@ -23,8 +23,7 @@ const auth = getAuth(app);
 // Extract id
 const queryString = window.location.search;     // section of URL after ?
 const params = new URLSearchParams(queryString);
-const postID = window.location.pathname.substring(7);
-alert(postID);
+const postID = window.location.pathname.substring(7);   // get rid of /posts/
 const commentsRef = collection(db, "posts", postID, "comments");
 
 const commentsContainer = document.getElementById("comments-container");

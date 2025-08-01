@@ -44,6 +44,7 @@ async function createPosts() {
         await page.evaluate(() => {
             const scriptTag = document.querySelector('script[src="/js/post.js"]');
             scriptTag.src = "/js/comments.js";
+            console.log("Script tag sucessfully updated.");
         });
 
         const html = await page.content();

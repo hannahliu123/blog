@@ -1,6 +1,3 @@
-- add new blog posts (google search console)
-- submit new sitemap.xml
-
 Blog Ideas: REMEMBER TO UPDATE SITEMAP!
     - Reading
         => The series that got me back into reading (RED RISING 🔥)
