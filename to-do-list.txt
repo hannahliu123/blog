@@ -1,3 +1,9 @@
+- add meta tags in post.js
+- remove old blog posts for google indexing & add new ones (google search console)
+- change all links previously post?id=... to posts/xxx (including byhannahliu.com, blog previews, etc. idk)
+- submit new sitemap.xml
+- canonical tags for each post
+
 Blog Ideas: REMEMBER TO UPDATE SITEMAP!
     - Reading
         => The series that got me back into reading (RED RISING 🔥)
