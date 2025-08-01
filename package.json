@@ -1,0 +1,25 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Generate static HTML files for each of my blog posts with all JS content loaded (used for SEO)",
+  "main": "generatePosts.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "node generatePosts.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hannahliu123/blog.git"
+  },
+  "keywords": [],
+  "author": "Hannah Liu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hannahliu123/blog/issues"
+  },
+  "homepage": "https://github.com/hannahliu123/blog#readme",
+  "dependencies": {
+    "firebase-admin": "^13.4.0"
+  }
+}

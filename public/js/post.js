@@ -46,11 +46,11 @@ async function showPost(post) {
     const container = document.getElementById("post-container");
 
     container.innerHTML = `
-        <div id="full-logo-container"><a href="https://byhannahliu.com/" id="full-logo-link"><img src="icons/full-logo.png" id="full-logo" alt="byhannahliu logo"></a></div><hr>
+        <div id="full-logo-container"><a href="https://byhannahliu.com/" id="full-logo-link"><img src="/icons/full-logo.png" id="full-logo" alt="byhannahliu logo"></a></div><hr>
         <h1 class="title">${post.title}</h1>
         <div class="details">
             <div class="author">
-                <img src="blog-photos/author.JPG" class="author-img" alt="Author Image">
+                <img src="/blog-photos/author.JPG" class="author-img" alt="Author Image">
                 <p class="author-name">Hannah Liu</p>
             </div>
             <p class="date">${post.date}</p>

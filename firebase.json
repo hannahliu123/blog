@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "blog-byhannahliu-com", 
-    "public": ".",
+    "public": "public",
     "cleanUrls": true,
     "ignore": [
       "firebase.json",
