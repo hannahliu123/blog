@@ -23,7 +23,8 @@ const auth = getAuth(app);
 // Extract id
 const queryString = window.location.search;     // section of URL after ?
 const params = new URLSearchParams(queryString);
-const postID = params.get("id");
+const postID = window.location.pathname.substring(7);
+alert(postID);
 const commentsRef = collection(db, "posts", postID, "comments");
 
 const commentsContainer = document.getElementById("comments-container");
@@ -111,7 +112,7 @@ async function renderComment(comment, parentCommentSibling) {
     const date = comment.date.toDate();
     commentDiv.innerHTML = `
         <div class="comment-left">
-            <img src="../icons/user-icon.png" alt="profile-picture">
+            <img src="/icons/user-icon.png" alt="profile-picture">
         </div>
         <div class="comment-right">
             <div class="delete-div">

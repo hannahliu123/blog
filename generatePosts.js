@@ -39,6 +39,13 @@ async function createPosts() {
             waitUntil: "networkidle0",
             timeout: 120000     // 2 mins
         });    // Wait for network to be idle (fully loaded)
+
+        // Remove post.js
+        await page.evaluate(() => {
+            const scriptTag = document.querySelector('script[src="/js/post.js"]');
+            scriptTag.src = "/js/comments.js";
+        });
+
         const html = await page.content();
 
         // Write to local file
