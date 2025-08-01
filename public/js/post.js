@@ -42,9 +42,31 @@ async function loadPost() {
 }
 
 async function showPost(post) {
-    document.title = post.title;
-    const container = document.getElementById("post-container");
+    // SEO Edits
+    document.title = post.title;    // title
+    let ogTitle = document.querySelector('meta[property="og:title"]');  // og title
+    ogTitle.content = post.title;
+    let twitterTitle = document.querySelector('meta[name="twitter:title"]');    // twitter title
+    twitterTitle.content = post.title;
 
+    let metaDesc = document.querySelector('meta[name="description"]');  // description
+    let previewText = post.content[0];
+    const words = previewText.split(" ");
+    previewText = words.slice(0, 30).join(" ");
+    metaDesc.content = previewText;
+    let ogDesc = document.querySelector('meta[property="og:description"]');     // og description
+    ogDesc.content = previewText;
+    let twitterDesc = document.querySelector('meta[name="twitter:description"]');   // og description
+    twitterDesc.content = previewText;
+
+    const link = "https://blog.byhannahliu.com/posts/" + post.id;
+    let canonical = document.querySelector('link[rel="canonical"]');    // canonical link
+    canonical.setAttribute("href", link);
+    let ogURL = document.querySelector('meta[property="og:url"]');    // og canonical link
+    ogURL.content = link;
+
+    // Show Blog Posts
+    const container = document.getElementById("post-container");
     container.innerHTML = `
         <div id="full-logo-container"><a href="https://byhannahliu.com/" id="full-logo-link"><img src="/icons/full-logo.png" id="full-logo" alt="byhannahliu logo"></a></div><hr>
         <h1 class="title">${post.title}</h1>
