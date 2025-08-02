@@ -77,7 +77,6 @@ async function showPost(post) {
             </div>
             <p class="date">${post.date}</p>
         </div>
-        <img src="${post.coverImg}" class="cover-img" alt="Cover Image">
     `;
 
     let headerId = 1;
