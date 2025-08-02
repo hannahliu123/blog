@@ -123,13 +123,6 @@ async function showPost(post) {
         }
     });
 
-    const spoilers = document.querySelectorAll(".spoiler");
-    spoilers.forEach(spoiler => {
-        spoiler.addEventListener("click", () => {
-            spoiler.classList.toggle("active");
-        })
-    });
-
     let linkCount = 1;
     const tableOfContents = document.querySelectorAll(".table-of-contents");
     tableOfContents.forEach(link => {

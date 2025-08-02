@@ -240,6 +240,14 @@ commentsForm.addEventListener("submit", async (event) => {
 
 cancelBtn.addEventListener("click", cancelReply);
 
+// Add Spoiler Functionality here (no longer in post.js)
+const spoilers = document.querySelectorAll(".spoiler");
+spoilers.forEach(spoiler => {
+    spoiler.addEventListener("click", () => {
+        spoiler.classList.toggle("active");
+    })
+});
+
 // Authentication
 onAuthStateChanged(auth, (user) => {
     if (user) {
