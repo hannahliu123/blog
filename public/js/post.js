@@ -79,7 +79,6 @@ async function showPost(post) {
         </div>
     `;
 
-    let headerId = 1;
     post.content.forEach(block => {
         if (block.startsWith("/blog-photos/")) { // image
             const img = document.createElement("img");
@@ -89,25 +88,35 @@ async function showPost(post) {
             container.appendChild(img);
         } else if (block.startsWith("HEADER")) {      // header
             const header = document.createElement("h2");
-            let str = block;
-            header.innerHTML = str.slice(6);
+            let str = block.slice(6);
+            if (str.slice(0,3) === "ID=") {
+                str = str.slice(3);     // get rid of "ID="
+                const array = str.split("END_ID");    // seperate id value and content
+                header.innerHTML = array[1];
+                header.id = array[0];
+            } else header.innerHTML = str;
             header.classList.add("header");
             container.appendChild(header);
-            header.id = headerId;
-            headerId += 1;
         } else if (block.startsWith("SUBHEADER")) {      // subheader
             const subheader = document.createElement("h3");
-            let str = block;
-            subheader.innerHTML = str.slice(9);
+            let str = block.slice(9);
+            if (str.slice(0,3) === "ID=") {
+                str = str.slice(3);     // get rid of "ID="
+                const array = str.split("END_ID");    // seperate id value and content
+                subheader.innerHTML = array[1];
+                subheader.id = array[0];
+            } else subheader.innerHTML = str;
             subheader.classList.add("subheader");
             container.appendChild(subheader);
         } else if (block.startsWith("CONTENTS")) {      // table of contents link
             const contents = document.createElement("a");
-            let str = block;
-            contents.innerHTML = str.slice(8);
+            let str = block.slice(8);
+            const array = str.split("END_HREF");    // seperate href value and text content
+            contents.innerHTML = array[1];
+            contents.href = array[0];
             contents.classList.add("table-of-contents");
             container.appendChild(contents);
-        } else if (block.startsWith("QUOTE")) {      // table of contents link
+        } else if (block.startsWith("QUOTE")) {      // blockquote
             const blockquote = document.createElement("blockquote");
             let quote = block;
             blockquote.innerHTML = `<p class="big-quote">“</p>
@@ -120,13 +129,6 @@ async function showPost(post) {
             p.classList.add("content-text");
             container.appendChild(p);
         }
-    });
-
-    let linkCount = 1;
-    const tableOfContents = document.querySelectorAll(".table-of-contents");
-    tableOfContents.forEach(link => {
-        link.href = "#" + linkCount.toString();
-        linkCount += 1;
     });
 }
 
