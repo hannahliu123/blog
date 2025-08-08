@@ -1,7 +1,3 @@
-# Files
-to-do-list.txt
-public/admin/
-
 # Logs
 logs
 *.log
@@ -72,3 +68,6 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+
+# Files
+to-do-list.txt
