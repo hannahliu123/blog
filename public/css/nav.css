@@ -250,6 +250,10 @@ body.mobile-menu-open .footer {
 }
 
 @media screen and (min-width: 768px) {
+    body {
+        font-size: 1.5rem;
+    }
+
     #nav-bar {
         margin: -40px;
     }
@@ -318,6 +322,10 @@ body.mobile-menu-open .footer {
 }
 
 @media screen and (min-width: 1024px){
+    body {
+        font-size: 1rem;
+    }
+    
     #nav-bar {
         margin: -10vw;
         margin-top: -60px;
