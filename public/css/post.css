@@ -459,6 +459,11 @@ hr {
         padding-top: 60px;
     }
 
+    #post-container, #comments-section {
+        max-width: 900px;
+        margin: auto;
+    }
+
     .title {
         font-size: 2.3rem;
         margin-top: 40px;
@@ -474,6 +479,7 @@ hr {
 
     hr {
         width: 90vw;
+        max-width: calc(10vw + 900px);
         margin-left: -5vw;
     }
 
