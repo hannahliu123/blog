@@ -80,29 +80,29 @@ async function showPost(post) {
     `;
 
     post.content.forEach(block => {
-        if (block.startsWith("/blog-photos/")) { // image
+        if (block.startsWith("/blog-photos/")) {        // image
             const img = document.createElement("img");
             img.src = block;
             img.alt = "blog-post-image";
             img.classList.add("content-img");
             container.appendChild(img);
-        } else if (block.startsWith("HEADER")) {      // header
+        } else if (block.startsWith("HEADER")) {        // header
             const header = document.createElement("h2");
             let str = block.slice(6);
             if (str.slice(0,3) === "ID=") {
-                str = str.slice(3);     // get rid of "ID="
-                const array = str.split("END_ID");    // seperate id value and content
+                str = str.slice(3); // get rid of "ID="
+                const array = str.split("END_ID");      // seperate id value and content
                 header.innerHTML = array[1];
                 header.id = array[0];
             } else header.innerHTML = str;
             header.classList.add("header");
             container.appendChild(header);
-        } else if (block.startsWith("SUBHEADER")) {      // subheader
+        } else if (block.startsWith("SUBHEADER")) {     // subheader
             const subheader = document.createElement("h3");
             let str = block.slice(9);
             if (str.slice(0,3) === "ID=") {
-                str = str.slice(3);     // get rid of "ID="
-                const array = str.split("END_ID");    // seperate id value and content
+                str = str.slice(3); // get rid of "ID="
+                const array = str.split("END_ID");      // seperate id value and content
                 subheader.innerHTML = array[1];
                 subheader.id = array[0];
             } else subheader.innerHTML = str;
@@ -111,23 +111,25 @@ async function showPost(post) {
         } else if (block.startsWith("CONTENTS")) {      // table of contents link
             const contents = document.createElement("a");
             let str = block.slice(8);
-            const array = str.split("END_HREF");    // seperate href value and text content
+            const array = str.split("END_HREF");        // seperate href value and text content
             contents.innerHTML = array[1];
             contents.href = array[0];
             contents.classList.add("table-of-contents");
             container.appendChild(contents);
-        } else if (block.startsWith("QUOTE")) {      // blockquote
+        } else if (block.startsWith("QUOTE")) {         // blockquote
             const blockquote = document.createElement("blockquote");
             let quote = block;
             blockquote.innerHTML = `<p class="big-quote">“</p>
                                     <pre class="quote-text">${quote.slice(5)}</pre>`;
             blockquote.classList.add("quote");
             container.appendChild(blockquote);
-        } else {    // text
-            const p = document.createElement("p");
-            p.innerHTML = block;
-            p.classList.add("content-text");
-            container.appendChild(p);
+        } else {                                        // text
+            if (block !== "") { // not an empty placeholder
+                const p = document.createElement("p");
+                p.innerHTML = block;
+                p.classList.add("content-text");
+                container.appendChild(p);
+            }
         }
     });
 }
