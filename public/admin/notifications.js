@@ -1,5 +1,3 @@
-// ONLY FOR THE AUTHOR NOT FOR PUBLIC
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 
@@ -15,32 +13,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
-const loginForm = document.getElementById("login-form")
-loginForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value.trim();
-
-    try {
-        const cred = await signInWithEmailAndPassword(auth, email, password);
-        alert("You are logged in! UID: " + cred.user.uid);
-    } catch (error) {
-        alert("Login Failed: " + error);
-    }
-});
-
-const logOut = document.getElementById("log-out");
-logOut.addEventListener("click", () => {
-    signOut(auth)
-        .then(() => {
-            alert("Logged Out Successfully!");
-        })
-        .catch((error) => {
-            alert("Error Logging Out: " + error);
-        })
-});
 
 onAuthStateChanged(auth, (user) => {
     if (user) {

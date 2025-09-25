@@ -116,7 +116,7 @@ async function renderComment(comment, parentCommentSibling) {
         <div class="comment-right">
             <div class="delete-div">
                 <div class="name-div">
-                    <p class="comment-name">${comment.name.toUpperCase()}</p>
+                    <p class="comment-name"></p>
                     <p class="author-tag hidden">Author</p>
                 </div>
                 <button class="delete-button">DELETE</button>
@@ -126,9 +126,12 @@ async function renderComment(comment, parentCommentSibling) {
                 <button class="reply-button">REPLY</button>
             </div>
             <hr>
-            <pre class="comment-text">${comment.text}</pre>
+            <pre class="comment-text"></pre>
         </div>
     `;
+
+    commentDiv.querySelector(".comment-name").textContent = comment.name.toUpperCase();
+    commentDiv.querySelector(".comment-text").textContent = comment.text;
 
     if (comment.parentId === "null") {
         commentsContainer.prepend(commentDiv);  // always add to beginning
