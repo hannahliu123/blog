@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #f6f2ea;
+    --text: #212121;
+    --btn: #CCBEB5;
+    --link: #913F3A;
+    --link-hover: #cb605a;
+    --notif-bg: #fffffc;
+}
+
+body {
+    font-family: "Outfit", sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 20px;
+}
+
+#header {
+    font-size: 2rem;
+    margin: 0;
+}
+
+a:link, a:visited {
+    color: var(--link);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+a:active {
+    color: var(--link);
+    text-decoration: none;
+}
+
+#notif-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.notif {
+    padding: 15px;
+    border: 1px solid var(--text);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: var(--notif-bg);
+}
+
+.notif p {
+    margin: 0;
+}
+
+.count {
+    margin: 0;
+}
+
+.count, .bold {
+    font-weight: 700;
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        font-size: 1.5rem;
+    }
+
+    #header {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    body {
+        font-size: 1rem;
+    }
+
+    #header {
+        font-size: 2rem;
+    }
+}
