@@ -217,6 +217,12 @@ hr {
     padding: 15px;
 }
 
+.code {
+    margin: 0 1px;
+    color: var(--code-text);
+    font-size: 0.9rem;
+}
+
 .comment {
     width: 100%;
     display: flex;
@@ -461,6 +467,10 @@ hr {
     .content-img {
         margin-bottom: 10px;
     }
+
+    .code {
+        font-size: 1.35rem;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -524,6 +534,10 @@ hr {
 
     .content-img {
         margin-bottom: 5px;
+    }
+
+    .code {
+        font-size: 1rem;
     }
 
     #name-email-container {
