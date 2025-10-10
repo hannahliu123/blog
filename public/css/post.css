@@ -215,6 +215,7 @@ hr {
     color: var(--code-text);
     border-radius: 5px;
     padding: 15px;
+    font-size: 0.9rem;
 }
 
 .code {
@@ -468,7 +469,7 @@ hr {
         margin-bottom: 10px;
     }
 
-    .code {
+    .code, .pre-code {
         font-size: 1.35rem;
     }
 }
@@ -536,7 +537,7 @@ hr {
         margin-bottom: 5px;
     }
 
-    .code {
+    .code, .pre-code {
         font-size: 1rem;
     }
 
