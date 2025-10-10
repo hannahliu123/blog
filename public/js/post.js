@@ -123,6 +123,13 @@ async function showPost(post) {
                                     <pre class="quote-text">${quote.slice(5)}</pre>`;
             blockquote.classList.add("quote");
             container.appendChild(blockquote);
+        } else if (block.startsWith("CODE")) {         // blockquote
+            const pre = document.createElement("pre");
+            const code = document.createElement("code");
+            code.innerHTML = block.slice(4);
+            pre.classList.add("pre-code");
+            pre.appendChild(code);
+            container.appendChild(pre);
         } else {                                        // text
             if (block !== "") { // not an empty placeholder
                 const p = document.createElement("p");

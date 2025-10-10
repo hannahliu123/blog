@@ -17,6 +17,8 @@
     --author-tag: #e6e5e2;
     --quote-border: #d26d68;
     --quote-bg: #e4dbda;
+    --code-bg: #e6e6e6;
+    --code-text: #000000;
 }
 
 html {
@@ -204,6 +206,15 @@ hr {
 
 .content-text {
     margin: 15px 0;
+}
+
+.pre-code {
+    width: 100%;
+    border: 1px solid var(--text);
+    background-color: var(--code-bg);
+    color: var(--code-text);
+    border-radius: 5px;
+    padding: 15px;
 }
 
 .comment {
@@ -460,7 +471,7 @@ hr {
     }
 
     #post-container, #comments-section {
-        max-width: 1000px;
+        max-width: 900px;
         margin: auto;
     }
 
@@ -479,7 +490,7 @@ hr {
 
     hr {
         width: 90vw;
-        max-width: calc(10vw + 1000px);
+        max-width: calc(10vw + 900px);
         margin-left: -5vw;
     }
 
