@@ -1,0 +1,151 @@
+<!DOCTYPE html><html lang="en"><head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Recently, I experienced my first ever cybersecurity attack through the comments section of my blog. The attack involved a user typing code instead of plain text as input, which was">
+        <meta name="author" content="Hannah Liu">
+        <link rel="canonical" href="https://blog.byhannahliu.com/posts/xss-attacks">
+
+        <!-- open graph tags -->
+        <meta property="og:title" content="Watch Out: How Input Fields Caused My First Cross-Site Scripting (XSS) Attack">
+        <meta property="og:description" content="Recently, I experienced my first ever cybersecurity attack through the comments section of my blog. The attack involved a user typing code instead of plain text as input, which was">
+        <meta property="og:type" content="article">
+        <meta property="og:site_name" content="ByHannahLiu Blog">
+        <meta property="og:image" content="https://blog.byhannahliu.com/blog-photos/blog-post.png">
+        <meta property="og:url" content="https://blog.byhannahliu.com/posts/xss-attacks">
+        <meta property="og:locale" content="en_US">
+
+        <!-- twitter card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Watch Out: How Input Fields Caused My First Cross-Site Scripting (XSS) Attack">
+        <meta name="twitter:description" content="Recently, I experienced my first ever cybersecurity attack through the comments section of my blog. The attack involved a user typing code instead of plain text as input, which was">
+        <meta name="twitter:image" content="https://blog.byhannahliu.com/blog-photos/blog-post.png">
+
+        <link rel="stylesheet" href="/css/nav.css">
+        <link rel="stylesheet" href="/css/post.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet">
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+        <link rel="manifest" href="/favicon/site.webmanifest">
+    <title>Watch Out: How Input Fields Caused My First Cross-Site Scripting (XSS) Attack</title>
+    </head>
+    <body>
+        <nav id="nav-bar">
+            <div id="top">
+                <div id="logo">
+                    <img src="/icons/logo.png" alt="logo" id="logo-img">
+                    <h1>Hannah Liu Blog</h1>
+                </div>
+                <div id="nav-btns">
+                    <p id="menu-btn">☰</p>
+                </div>
+            </div>
+            <div id="bottom">
+                <div id="nav-links">
+                    <ul>
+                        <li><a href="#" class="nav-link">Top</a></li>
+                        <li><a href="#comments-section" class="nav-link">Comments</a></li>
+                        <li><a href="#page-bottom" class="nav-link">Bottom</a></li>
+                    </ul>
+                    <div id="divider"></div>
+                    <ul>
+                        <li><a href="/index.html" class="nav-link">All Blogs</a></li>
+                        <li><a href="https://byhannahliu.com/" class="nav-link">Personal Website</a></li>
+                        <li><a href="https://byhannahliu.com/about-me.html" class="nav-link">About Me</a></li>
+                    </ul>
+                </div>
+                <div id="nav-footer" class="footer">
+                    <div class="contacts">
+                        <a href="https://github.com/hannahliu123">
+                            <img src="/icons/github.svg" alt="GitHub">
+                        </a>
+                        <a href="https://byhannahliu.com">
+                            <img src="/icons/logo.png" alt="Personal Website">
+                        </a>
+                        <a href="mailto:byhannahliu@gmail.com">
+                            <img src="/icons/gmail.png" alt="Email">
+                        </a>
+                        <a href="https://www.instagram.com/hannahliu413/">
+                            <img src="/icons/instagram.png" alt="Instagram">
+                        </a>
+                        <a href="https://pin.it/6A4oJfzQ8">
+                            <img src="/icons/pinterest.png" alt="Pinterest">
+                        </a>
+                    </div>
+                    <div class="footer-credit">
+                        <p>© Copyright 2025 Hannah Liu</p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <article id="post-container">
+        <div id="full-logo-container"><a href="https://byhannahliu.com/" id="full-logo-link"><img src="/icons/full-logo.png" id="full-logo" alt="byhannahliu logo"></a></div><hr>
+        <h1 class="title">Watch Out: How Input Fields Caused My First Cross-Site Scripting (XSS) Attack</h1>
+        <div class="details">
+            <div class="author">
+                <img src="/blog-photos/author.JPG" class="author-img" alt="Author Image">
+                <p class="author-name">Hannah Liu</p>
+            </div>
+            <p class="date">October 11, 2025</p>
+        </div>
+    <p class="content-text">Recently, I experienced my first ever cybersecurity attack through the comments section of my blog. The attack involved a user typing code instead of plain text as input, which was then injected into my website’s HTML code. When the code ran, each of my blog posts were replaced by a blank page with the huge letters: "HACKED BY HATEYOU." At the time, I was terrified, but after looking into the issue, I realized that I had overlooked a very common security vulnerability: cross-site scripting.</p><p class="content-text">Security was an area that I had never previously considered, as I was just starting to get into web development. But because of this cross-site scripting attack, I’ve learned to be more cautious of malicious users on the internet, and I hope this article can help you learn something new as well.</p><h3 class="subheader">Table of Contents</h3><a href="#what-is-xss" class="table-of-contents">What is XSS?</a><a href="#experience" class="table-of-contents">My First Experience</a><a href="#prevention" class="table-of-contents">How to Prevent XSS</a><a href="#takeaways" class="table-of-contents">Lessons &amp; Takeaways</a><h2 id="what-is-xss" class="header">What is XSS?</h2><p class="content-text">Cross-site scripting, or XSS, is a web security issue that allows an attacker to insert malicious code into a website. XSS attacks typically involve manipulating some type of user input that isn’t properly processed or sanitized. Instead of typing normal text into an input field, attackers type code (usually Javascript) that is then embedded into the website and performs actions such as redirecting URLs, stealing user data, or replacing content on a webpage.</p><p class="content-text">In the past, XSS has been an issue for companies like Google, eBay, Uber, WhatsApp, and more. In 2018, for example, an XSS attack on the British Airways was able to steal data from 380,000 booking transactions.</p><p class="content-text">But in addition to those large-scale attacks, there is one type of a much simpler XSS attack that is often overlooked by beginners when creating any application that involves user inputs. This includes areas like comment sections, message boards, search bars, and setting up user profiles where a malicious user inputs code instead of plain text. Luckily, this problem can be easily resolved, as long as you are careful about how you implement and structure your code.</p><img src="/blog-photos/xss-diagram.png" alt="blog-post-image" class="content-img"><h2 id="experience" class="header">My First Experience</h2><p class="content-text">My first experience with an XSS attack was with my blog’s comment section. Before I fixed my code, I took submitted user input and directly embedded it into my comment section’s HTML code. Because of this, one user was able to exploit my mistake and add the following line of code that overrode my entire page with the words "HACKED BY HATEYOU".</p><pre class="pre-code"><code>&lt;img src="x" onerror="document.body.innerHTML = '&lt;h1&gt;HACKED BY HATEYOU&lt;/h1&gt;'"&gt;</code></pre><p class="content-text">At first, I was so scared that someone just deleted my website or stole some kind of information, but what actually happened was quite simple. Because I kept logs of each posted comment (I highly recommend you do that too), I was able to identify the comment that caused the error (which contained the line of code shown above). That line of code basically inserts an <code class="code">img</code> tag with a faulty source and an <code class="code">onerror</code> attribute that executes Javascript when an error (the faulty tag) occurs. The Javascript that executes ends up replacing my entire HTML document with the words "HACKED BY HATEYOU".</p><h2 id="prevention" class="header">How to Prevent XSS</h2><p class="content-text">With simpler applications and input fields, the easiest way to prevent XSS attacks is to avoid using <code class="code">innerHTML</code> with any areas involving user input. This is because when you insert text into your code using <code class="code">innerHTML</code>, you are directly inserting the given input into the Document Object Model (DOM). Therefore, any code input will secretly run inside your website, likely causing malicious actions. Because of how common this security concern is, it is often recommended not to use <code class="code">innerHTML</code> whenever dealing with inputs (as shown below).</p><img src="/blog-photos/mdn-innerHTML.png" alt="blog-post-image" class="content-img"><p class="content-text">One great replacement for <code class="code">innerHTML</code>, which is what I personally used when I dealt with XSS attacks, is <code class="code">textContent</code>. Instead of rendering HTML code, <code class="code">textContent</code> will ignore all HTML tags and treat all strings as plain text (even if it has code embedded within it).</p><p class="content-text">Another way to prevent XSS is to sanitize text input before it’s displayed on a screen by replacing special characters (<code class="code">&lt; &gt; &amp; " '</code>) with <a href="https://www.w3schools.com/html/html_entities.asp">HTML character entities</a>. </p><p class="content-text">Another more tedious way to prevent XSS is to filter all input upon arrival. This is often a last-resort method when inputs get completely out of hand. It is more common for things like spam or inappropriate content, but for smaller sites, if you’re willing to go through all user input by hand, this could be a possible option. With spam being so common in comments sections recently, many blog owners have chosen to resort to this method in hopes of decluttering comment sections of unwanted content. </p><h2 id="takeaways" class="header">Lessons &amp; Takeaways</h2><p class="content-text">This experience has been very eye-opening for me, as it was quite literally my first ever experience with a web security attack. I’m glad nothing serious happened, but thanks to this attack, I was able to realize how important security is on the Internet. My seemingly simple mistake has completely changed the way I view user input and security.</p><p class="content-text">Most importantly, from this experience, I’ve learned that security isn’t just an issue for big companies. Attackers can target anyone building on the web, so it’s crucial to know how to prepare yourself for and prevent those attacks. I hope you’ve found this article helpful, and if you’re interested in reading more XSS, I’ve attached a few links that I’ve found helpful. Thanks for reading!</p><h3 class="subheader">Further Reading</h3><p class="content-text"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting">MDN Web Docs: Cross-site scripting (XSS)</a></p><p class="content-text"><a href="https://owasp.org/www-community/attacks/xss/">OWASP: Cross Site Scripting (XSS)</a></p><p class="content-text"><a href="https://www.acunetix.com/websitesecurity/cross-site-scripting/">Acunetix: Cross-Site Scripting (XSS)</a></p><p class="content-text"><a href="https://portswigger.net/web-security/cross-site-scripting">PortSwigger: Cross-site scripting</a></p></article>
+        <section id="comments-section">
+            <h2 class="header" id="comments-header">Comments (0)</h2>
+            <div id="comments-container"></div>
+            <form id="comments-form">
+                <div id="input-top">
+                    <h3 id="input-header">Leave a Comment</h3>
+                    <a id="cancel-btn">Cancel Reply</a>
+                </div>
+                <p>You will be able to delete your comments within 10 minutes of posting it.</p>
+                <p>Fields marked with * are required. If you have any questions, feel free to reach out to me <a href="mailto:byhannahliu@gmail.com">here</a>.</p>
+                <div id="name-email-container">
+                    <div class="input-container" id="name-container">
+                        <label for="name">NAME *</label><br>
+                        <input type="text" id="name" name="name" required=""><br>
+                    </div>
+                    <div class="input-container" id="email-container">
+                        <label for="email">EMAIL</label><br>
+                        <input type="email" id="email" name="email"><br>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <label for="text">COMMENT *</label><br>
+                    <textarea id="text" name="text" required=""></textarea><br>
+                </div>
+                <div id="submit-container">
+                    <input type="submit" value="Post Comment">
+                </div>
+                <p><b>DISCLAIMER:</b> If you see a delete button but nothing seems to happens when you click on it, check to make sure you have enabled notifications for the search engine you're using and try clearing your cache. If it still doesn't work, please let me know <a href="mailto:byhannahliu@gmail.com">here</a> and I can manually delete your comment for you.</p>
+                <input type="hidden" id="parentId" value="">
+            </form>
+        </section>
+        <footer class="footer" id="page-bottom">
+            <div class="contacts">
+                <a href="https://github.com/hannahliu123">
+                    <img src="/icons/github.svg" alt="GitHub">
+                </a>
+                <a href="https://byhannahliu.com">
+                    <img src="/icons/logo.png" alt="Personal Website">
+                </a>
+                <a href="mailto:byhannahliu@gmail.com">
+                    <img src="/icons/gmail.png" alt="Email">
+                </a>
+                <a href="https://www.instagram.com/hannahliu413/">
+                    <img src="/icons/instagram.png" alt="Instagram">
+                </a>
+                <a href="https://pin.it/6A4oJfzQ8">
+                    <img src="/icons/pinterest.png" alt="Pinterest">
+                </a>
+            </div>
+            <div class="footer-credit">
+                <p>© Copyright 2025 Hannah Liu</p>
+            </div>
+        </footer>
+        <script src="/js/nav.js"></script>
+        <script type="module" src="/js/comments.js"></script>
+    
+
+</body></html>
