@@ -182,7 +182,6 @@ async function renderComment(comment, parentCommentSibling) {
         deleteBtn.classList.add("active");
         deleteBtn.addEventListener("click", () => {
             const commentId = deleteBtn.parentNode.parentNode.parentNode.id;
-            // problem might be that comment.id isn't always available? just .parentNode or something to get the id based on the delete btn
             deleteComment(commentId, comment.name, comment.text)
         });
     }
