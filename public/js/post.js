@@ -130,6 +130,15 @@ async function showPost(post) {
             pre.classList.add("pre-code");
             pre.appendChild(code);
             container.appendChild(pre);
+        } else if (block.startsWith("ULIST")) {  // unordered list
+            const ul = document.createElement("ul");
+            const items = block.slice(5).trim().split('\n');
+            items.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item.trim();
+                ul.appendChild(li);
+            });
+            container.appendChild(ul);
         } else {                                        // text
             if (block !== "") { // not an empty placeholder
                 const p = document.createElement("p");
