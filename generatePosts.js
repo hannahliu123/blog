@@ -10,7 +10,7 @@ const credentials = {
 admin.initializeApp(credentials);
 const db = admin.firestore();
 const postsFolder = "./public/posts/";
-const postIDs = [];
+const postIDs = ["bitwise-operators"];  // set to whatever post id you want to update
 
 async function getPostIDs() {
     const snapshot = await db.collection("posts").get();
@@ -20,7 +20,7 @@ async function getPostIDs() {
 }
 
 async function createPosts() {
-    await getPostIDs();
+    // await getPostIDs();  // only uncomment of you want to update all posts
     console.log("Found post IDs:", postIDs);
 
     const browser = await puppeteer.launch();

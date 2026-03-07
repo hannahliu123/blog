@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="en"><head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="I’ve always been fascinated by how computers take high-level code and translate it into physical actions at the bit level. Bitwise operators are what make these translations possible. Because they">
+        <meta name="author" content="Hannah Liu">
+        <link rel="canonical" href="https://blog.byhannahliu.com/posts/bitwise-operators">
+
+        <!-- open graph tags -->
+        <meta property="og:title" content="Fundamentals of Bitwise Logic">
+        <meta property="og:description" content="I’ve always been fascinated by how computers take high-level code and translate it into physical actions at the bit level. Bitwise operators are what make these translations possible. Because they">
+        <meta property="og:type" content="article">
+        <meta property="og:site_name" content="ByHannahLiu Blog">
+        <meta property="og:image" content="https://blog.byhannahliu.com/blog-photos/blog-post.png">
+        <meta property="og:url" content="https://blog.byhannahliu.com/posts/bitwise-operators">
+        <meta property="og:locale" content="en_US">
+
+        <!-- twitter card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Fundamentals of Bitwise Logic">
+        <meta name="twitter:description" content="I’ve always been fascinated by how computers take high-level code and translate it into physical actions at the bit level. Bitwise operators are what make these translations possible. Because they">
+        <meta name="twitter:image" content="https://blog.byhannahliu.com/blog-photos/blog-post.png">
+
+        <link rel="stylesheet" href="/css/nav.css">
+        <link rel="stylesheet" href="/css/post.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet">
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+        <link rel="manifest" href="/favicon/site.webmanifest">
+    <title>Fundamentals of Bitwise Logic</title>
+    </head>
+    <body>
+        <nav id="nav-bar">
+            <div id="top">
+                <div id="logo">
+                    <img src="/icons/logo.png" alt="logo" id="logo-img">
+                    <h1>Hannah Liu Blog</h1>
+                </div>
+                <div id="nav-btns">
+                    <p id="menu-btn">☰</p>
+                </div>
+            </div>
+            <div id="bottom">
+                <div id="nav-links">
+                    <ul>
+                        <li><a href="#" class="nav-link">Top</a></li>
+                        <li><a href="#comments-section" class="nav-link">Comments</a></li>
+                        <li><a href="#page-bottom" class="nav-link">Bottom</a></li>
+                    </ul>
+                    <div id="divider"></div>
+                    <ul>
+                        <li><a href="/index.html" class="nav-link">All Blogs</a></li>
+                        <li><a href="https://byhannahliu.com/" class="nav-link">Personal Website</a></li>
+                        <li><a href="https://byhannahliu.com/about-me.html" class="nav-link">About Me</a></li>
+                    </ul>
+                </div>
+                <div id="nav-footer" class="footer">
+                    <div class="contacts">
+                        <a href="https://github.com/hannahliu123">
+                            <img src="/icons/github.svg" alt="GitHub">
+                        </a>
+                        <a href="https://byhannahliu.com">
+                            <img src="/icons/logo.png" alt="Personal Website">
+                        </a>
+                        <a href="mailto:byhannahliu@gmail.com">
+                            <img src="/icons/gmail.png" alt="Email">
+                        </a>
+                        <a href="https://www.instagram.com/hannahliu413/">
+                            <img src="/icons/instagram.png" alt="Instagram">
+                        </a>
+                        <a href="https://pin.it/6A4oJfzQ8">
+                            <img src="/icons/pinterest.png" alt="Pinterest">
+                        </a>
+                    </div>
+                    <div class="footer-credit">
+                        <p>© Copyright 2025 Hannah Liu</p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <article id="post-container">
+        <div id="full-logo-container"><a href="https://byhannahliu.com/" id="full-logo-link"><img src="/icons/full-logo.png" id="full-logo" alt="byhannahliu logo"></a></div><hr>
+        <h1 class="title">Fundamentals of Bitwise Logic</h1>
+        <div class="details">
+            <div class="author">
+                <img src="/blog-photos/author.JPG" class="author-img" alt="Author Image">
+                <p class="author-name">Hannah Liu</p>
+            </div>
+            <p class="date">March 07, 2026</p>
+        </div>
+    <p class="content-text">I’ve always been fascinated by how computers take high-level code and translate it into physical actions at the bit level. Bitwise operators are what make these translations possible. Because they operate on individual bits on a low level, bitwise operations are incredibly efficient and widely used in many different areas of programming.</p><p class="content-text">This post is a detailed breakdown of how these operators work, the logic behind them, and an overview of their practical applications.</p><h3 class="subheader">Table of Contents</h3><a href="#bits" class="table-of-contents">What are Bits?</a><a href="#what-are-bitwise-operators" class="table-of-contents">What are Bitwise Operators?</a><a href="#bit-operations" class="table-of-contents">Bit Operations and Their Features</a><a href="#common-uses" class="table-of-contents">Common Uses</a><a href="#interesting-uses" class="table-of-contents">Interesting Uses</a><a href="#applications" class="table-of-contents">Real-World Applications</a><h2 id="bits" class="header">What are Bits?</h2><p class="content-text">Bits, short for <b>binary digits</b>, are the most basic units of data for computers. Bits use the <b>binary number system</b> (base 2) to represent information using 1s and 0s. Because a computer’s processor is made up of billions of transistors (somewhat like on/off switches), binary is the only language that the hardware of computers can naturally process. As a result, computers treat all data as binary sequences (sequences of bits) and therefore represent ALL data such as numbers, text, images, audio, or video in binary.</p><p class="content-text">Binary sequences can range from any length. For example, smaller sequences can be 8 bits long (AKA one byte) whilst longer sequences can be 256 bits long (for things like encryption keys).</p><p class="content-text">It’s important to understand how a basic binary sequence (using base 2) is <b>decoded</b> (converted to decimal). When given a sequence, you start from the rightmost digit (position 0) and move left (whilst increasing position). The potential value at each bit is 2^position. The rightmost bit therefore has a potential value of 2⁰=1. The next bit (after moving left one) has a potential value of 2¹=2. The next bit has a potential value of 2²=4, then 2³=8, and so on with the position/exponent increasing every time you move left one bit. Then, looking at the given binary sequence, you need to see if the bit corresponding to a certain position is on (1) or off (0). If it’s on, you add the potential value of the bit to the final decimal (base-10) value.</p><pre class="pre-code"><code>Binary Sequence       0   0  1  1  0 1 1 0
+Position (exponent)   7   6  5  4  3 2 1 0
+Value (2^position)    128 64 32 16 8 4 2 1
+Calculation                  32+16  +4+2  = 54 (final decimal value!)</code></pre><p class="content-text">It’s also important to note that for signed values (numbers that could be positive or negative), computers use a system called <b>Two’s Complement</b>, where the leftmost bit, which we call the <b>Most Significant Bit (MSB)</b>, is evaluated differently.</p><p class="content-text">In an 8-bit number, for example, the leftmost bit (MSB) would represent -128. If that bit is on (1), you start at -128 and add the remaining positive bits to it as normal. Otherwise, if that bit is off (0), you treat it as you normally would, meaning its value/contribution to the final number would just be zero. This clever math is used to simplify computer arithmetic (but doesn’t apply for unsigned values).</p><h2 id="what-are-bitwise-operators" class="header">What are Bitwise Operators?</h2><p class="content-text">Bitwise operators are symbols that perform operations on binary sequences. Just like how normal arithmetic operators (ex. addition, subtraction, multiplication, etc.) can perform calculations on numeric data, bitwise operators can perform calculations on the binary sequences.</p><p class="content-text">It might be tempting to think of certain bitwise operators as a different form of writing arithmetic operators. For example, bitwise NOT (~) seems very similar to taking the negative version of a number, and bitwise AND (&amp;) seems similar to adding two numbers together. However, bitwise operators are actually <b>completely different</b> compared to typical arithmetic operators!
+Unlike arithmetic operators, bitwise operators evaluate sequences <b>bit by bit</b>, meaning the final answer they calculate is constructed by comparing one bit at a time (no carry-over). Additionally, bitwise operators are much <b>faster</b> than arithmetic operators because computers actually use a series bitwise operations to perform arithmetic calculations (if interested, you can see some specific operations <a href="#interesting-uses">here</a>)!</p><h2 id="bit-operations" class="header">Bit Operations and Their Features</h2><p class="content-text">In general, bit operations on their own are very simple to understand. You should be familiar with bitwise AND (&amp;), OR (|), XOR(^), and NOT (~), as well as bit shifts (&lt;&lt; &gt;&gt;).</p><h3 class="subheader">AND (&amp;)</h3><p class="content-text">Bitwise AND keeps a bit on (1) if and only if the bit in that position is already on for both numbers. Otherwise, if either one or both numbers have a bit off (0) in that position, the result of AND would be off for that position.</p><pre class="pre-code"><code>n1       01001101 (77)
+n2       01100101 (101)
+n1&amp;n2    01000101 (69)</code></pre><p class="content-text">Bitwise AND is typically used to check if a certain bit is on, such as in bit masking.</p><h3 class="subheader">OR (|)</h3><p class="content-text">Bitwise OR keeps a bit on (1) if the bit in that position is on for at least one number (either one or both). Otherwise, if both numbers have a bit off (0) in that position, the result of OR would be off for that position.</p><pre class="pre-code"><code>n1      01001101 (77)
+n2      01100101 (101)
+n1|n2   01101101 (109)</code></pre><h3 class="subheader">XOR (^)</h3><p class="content-text">Bitwise XOR keeps a bit on (1) if and only if the bit in that position is on for exactly one number, or in other words, if the bit in that position is different for both numbers.</p><pre class="pre-code"><code>n1       01001101 (77)
+n2       01100101 (101)
+n1^n2    00101000 (40)</code></pre><p class="content-text">One very special property of XOR is that it is its own <b>inverse</b>! This means that for any number <code class="code">x</code>: <code class="code">x^x=0</code>. Logically, this makes sense because XOR only returns 1 if two bits are different, and clearly, x has the exact same bit representation as itself.</p><p class="content-text">Another special property of XOR is its <b>associative</b> and <b>commutative</b> nature. This means that if <code class="code">a^b=c</code>, then XORing any two numbers among <code class="code">a</code>, <code class="code">b</code>, or <code class="code">c</code> will yield the third: <code class="code">a^c=b</code> and <code class="code">c^b=a</code>.</p><p class="content-text">You can notice this pattern in the example above, and it’s actually the backbone of things like RAID 5 (how servers recover lost data) and even basic cryptography. If <code class="code">a</code> is your data and <code class="code">b</code> is your secret key, then <code class="code">c</code> is the encrypted message. Only someone with the key (<code class="code">b</code>) can XOR it again to get the original data (<code class="code">a</code>) back.</p><h3 class="subheader">NOT (~)</h3><p class="content-text">Bitwise NOT inverts all the bits in a number such that all occurrences of 0 become 1 and vice versa.</p><pre class="pre-code"><code>n1     01001101 (77)
+~n1    10110010 (-78)</code></pre><p class="content-text">If you look at the result of ~77, you might be surprised to see that the answer is -78, not just -77. The reason for this is because, the formula for <code class="code">~x</code> is actually: <code class="code">~x = -(x+1) = -x-1</code></p><p class="content-text">In fact, <b>Two’s Complement</b>, which I mentioned earlier, represents a negative number through this formula! It inverts all bits of a positive number (<code class="code">~x</code>) then adds 1 to the result (<code class="code">-x = ~x+1</code>).</p><h3 class="subheader">Bit Shifts</h3><p class="content-text">Bit shifts move an entire sequence of bits to the left or right, pushing bits off the edge or filling gaps with zeros.</p><p class="content-text"><b>Left Shift (&lt;&lt;)</b></p><p class="content-text">When you left shift, you push all the bits to the left and fill the new empty spaces on the right with zeros.</p><pre class="pre-code"><code>n1       00001101 (13)
+n1 &lt;&lt; 1  00011010 (26)
+n1 &lt;&lt; 2  00110100 (52)</code></pre><p class="content-text">Notice that each time you left shift, you are <b>multiplying</b> the previous number by 2. Shifting by two positions multiplies it by 4 (2²), and three would multiply it by 8 (2³), and so on.
+In other words, <code class="code">x &lt;&lt; k</code> corresponds to multiplying <code class="code">x</code> by 2ᵏ.</p><p class="content-text">However, it’s important to note that this trick only works if your data type has <b>enough room</b> to store the new shifted value. When you shift an integer too many spaces left, you need to be careful about overflow. In many programming languages, integers take up 32 bits. If you push a 1 off the edge (shift a number too far), the integer might suddenly become a very small number (because you lost your most significant bits), or even a negative number (because you shifted a 1 into the sign bit slot!)</p><p class="content-text">To combat this issue, you can simply use a larger data type. If a 32-bit integer isn't enough to hold your shifted values, you might move up to a 64-bit integer, which can store numbers up to 2⁶³-1 (which is over 9 quintillion).</p><p class="content-text"><b>Right Shift (&gt;&gt;)</b></p><p class="content-text">As you might guess, when you right shift, you push all the bits to the right and discard any bits on the far right (that “fall off”).</p><pre class="pre-code"><code>n1       00001101 (13)
+n1 &gt;&gt; 1  00000110 (6)
+n1 &gt;&gt; 2  00000011 (3)</code></pre><p class="content-text">This time, notice that right shifting is the equivalent of <b>floor division</b> (integer division) by 2. In other words, <code class="code">x &gt;&gt; k</code> corresponds to dividing <code class="code">x</code> by 2ᵏ, then rounding the result down to an integer (truncating).</p><h2 id="common-uses" class="header">Common Uses</h2><p class="content-text">There are so many common applications of bitwise operations that can make your code faster, cleaner, and, well, a lot cooler. </p><h3 class="subheader">Checking Even/Odd</h3><p class="content-text">Instead of using the modulo operator (<code class="code">x % 2</code>), you can use (<code class="code">x &amp; 1</code>). If the result is 1, the number is odd. If the result is 0, it's even. This works because all odd numbers in binary must end in a 1!</p><p class="content-text">Using (<code class="code">x &amp; 1</code>) is also slightly faster than (<code class="code">x % 2</code>), but the difference is relatively small in modern high-level languages.</p><h3 class="subheader">Detecting Powers of Two</h3><p class="content-text">If you want to check whether a number (<code class="code">x</code>) is a <b>power of 2</b>, you can check if the expression (<code class="code">x &amp; (x - 1)</code>) equals 0. This works because all powers of 2 must only have one bit turned on in its binary representation. As a result, when you subtract 1 from a power of two, that single "on" bit (1) turns off, and every bit to its right (which were all 0s) turns on. When you take the AND of both values, they should be different in every bit position, satisfying <code class="code">(x &amp; (x - 1)) == 0</code>.</p><h3 class="subheader">Bit Masking</h3><p class="content-text">A <b>bit mask</b> is a predefined binary pattern (typically an integer value represented in binary) that is used in combination with bitwise operators to selectively read, set, clear, or toggle specific bits within another binary number.</p><p class="content-text">A common bit mask that contains only one bit turned on at the <code class="code">n</code>th position is (<code class="code">1 &lt;&lt; n</code>).</p><p class="content-text"><code class="code">x |= (1&lt;&lt;n)</code> sets the <code class="code">n</code>th bit of <code class="code">x</code> to 1.<br>
+<code class="code">x &amp;= ~(1&lt;&lt;n)</code> sets the <code class="code">n</code>th bit of <code class="code">x</code> to 0.<br>
+<code class="code">x ^= (1&lt;&lt;n)</code> inverts/flips the <code class="code">n</code>th bit of <code class="code">x</code>.<br></p><p class="content-text">There are many other more complex usages of bitmasks as well. For instance, you don't have to limit your mask to just one bit. You can create a mask that targets an entire group of bits to read or modify them simultaneously.</p><h3 class="subheader">Representing Sets</h3><p class="content-text">A number’s binary representation can also be used to represent a set. If you had an array <code class="code">{3, 2, 6, 4, 10}</code> and you wanted to select the elements at index 0 and index 2 (the values 3 and 6), you can represent that with the binary number <code class="code">10100</code>. In this case, the bits at the positions you want to "keep" are turned on, and the others are off. This binary string represents the integer 20.</p><pre class="pre-code"><code>Array: 3, 2, 6, 4, 10
+Index: 0  1  2  3  4
+Mask:  1  0  1  0  0 = 10100 = 20</code></pre><p class="content-text">A <b>bitset</b> is a data structure that compactly stores a sequence of bits and provides efficient methods for manipulating them. It’s primarily used to represent sets of boolean values much more efficiently than an array of booleans.</p><h3 class="subheader">Generating Subsets</h3><p class="content-text">We can also use bitsets to generate all possible subsets of <code class="code">n</code> items. If a list has <code class="code">n</code> items, there are 2ⁿ possible combinations. You simply count from 0 to 2ⁿ-1 in binary to see all combinations of those items. </p><p class="content-text">Each number in that count acts as a "mask" that tells you which items to include in that specific subset.</p><pre class="pre-code"><code>n=3 (Items: A, B, C)
+0  000 -&gt; { }
+1  001 -&gt; {C}
+2  010 -&gt; {B}
+3  011 -&gt; {B, C}
+4  100 -&gt; {A}
+5  101 -&gt; {A, C}
+6  110 -&gt; {A, B}
+7  111 -&gt; {A, B, C}</code></pre><h2 id="interesting-uses" class="header">Interesting Uses</h2><p class="content-text">In theory, understanding how each of the bitwise operators work is very simple, but using them in combination with each other can become very complex and unintuitive.</p><h3 class="subheader">Bitwise Arithmetic</h3><p class="content-text">You can actually perform full subtraction, multiplication, and division using only shifts and bitwise operators, which is how the CPU handles these operations.</p><p class="content-text">Addition, for example, can be rewritten as:&nbsp;&nbsp;<code class="code">a+b = ((a&amp;b)&lt;&lt;1)+(a^b)</code></p><p class="content-text">This works because the result of <code class="code">a^b</code> (XOR) is what you get when you add the binary forms of a and b except without any carry-over. Since XOR only returns 1 when bits are different, it perfectly calculates the sum for each column while ignoring the carry-over.</p><p class="content-text">The result of <code class="code">a&amp;b</code> identifies exactly where a carry occurs when both bits are 1. We then shift it left to represent the carry propagating to the next column.
+Finally, we need to add the result of those operations to each other without actually using the plus sign. To achieve this, you simply repeat the process until there are no carries left, using either a <code class="code">while</code> loop or recursion.</p><h3 class="subheader">Gosper’s Hack</h3><p class="content-text">Gosper’s Hack is a bitwise formula used to iterate through all <code class="code">n</code>-bit values that have <code class="code">k</code> bits set to 1, from lowest to highest. Instead of checking every single number (which would be slow), it uses a combination of Two's Complement and XOR to skip directly to the next value in lexicographical order.</p><p class="content-text">I really love this algorithm because it’s incredibly clever, and I’m planning a separate post to break it down in full. Until then, if you’re curious about this algorithm, you can check out these two really helpful resources:</p><ul><li><a href="https://read.seas.harvard.edu/~kohler/class/cs207-s12/lec12.html">Harvard Lecture 12: Bits</a></li><li><a href="https://programmingforinsomniacs.blogspot.com/2018/03/gospers-hack-explained.html">ProgrammingForInsomniacs: Gosper’s Hack Explained</a></li></ul><h2 id="applications" class="header">Real-World Applications</h2><p class="content-text">Bitwise operators are commonly used in modern software to handle massive amounts of data efficiently. For example:</p><ul><li><b>Digital Colors (RGB)</b>: A single hex color like #FF5733 is actually a 24-bit integer where shifts and masks can be used to isolate specific Red, Green, or Blue values.</li><li><b>Compression</b>: File formats like .zip or .png use bit-level manipulation to swap long sequences of data for shorter bit-codes, shrinking files without losing information.</li><li><b>Cryptography</b>: Because XOR is its own inverse, it is the perfect tool for quickly scrambling and unscrambling private data.</li><li><b>Feature Flags</b>: Bitmasks are used to efficiently manage user permissions or enable/disable software features.</li></ul><p class="content-text"><br>Thanks for reading, and I hope you found this breakdown useful! Let me know in the comments section if you have any questions or if there are other algorithms you’d like to see a deep dive on next.</p></article>
+        <section id="comments-section">
+            <h2 class="header" id="comments-header">Comments (0)</h2>
+            <div id="comments-container"></div>
+            <form id="comments-form">
+                <div id="input-top">
+                    <h3 id="input-header">Leave a Comment</h3>
+                    <a id="cancel-btn">Cancel Reply</a>
+                </div>
+                <p>You will be able to delete your comments within 10 minutes of posting it.</p>
+                <p>Fields marked with * are required. If you have any questions, feel free to reach out to me <a href="mailto:byhannahliu@gmail.com">here</a>.</p>
+                <div id="name-email-container">
+                    <div class="input-container" id="name-container">
+                        <label for="name">NAME *</label><br>
+                        <input type="text" id="name" name="name" required=""><br>
+                    </div>
+                    <div class="input-container" id="email-container">
+                        <label for="email">EMAIL</label><br>
+                        <input type="email" id="email" name="email"><br>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <label for="text">COMMENT *</label><br>
+                    <textarea id="text" name="text" required=""></textarea><br>
+                </div>
+                <div id="submit-container">
+                    <input type="submit" value="Post Comment">
+                </div>
+                <p><b>DISCLAIMER:</b> If you see a delete button but nothing seems to happens when you click on it, check to make sure you have enabled notifications for the search engine you're using and try clearing your cache. If it still doesn't work, please let me know <a href="mailto:byhannahliu@gmail.com">here</a> and I can manually delete your comment for you.</p>
+                <input type="hidden" id="parentId" value="">
+            </form>
+        </section>
+        <footer class="footer" id="page-bottom">
+            <div class="contacts">
+                <a href="https://github.com/hannahliu123">
+                    <img src="/icons/github.svg" alt="GitHub">
+                </a>
+                <a href="https://byhannahliu.com">
+                    <img src="/icons/logo.png" alt="Personal Website">
+                </a>
+                <a href="mailto:byhannahliu@gmail.com">
+                    <img src="/icons/gmail.png" alt="Email">
+                </a>
+                <a href="https://www.instagram.com/hannahliu413/">
+                    <img src="/icons/instagram.png" alt="Instagram">
+                </a>
+                <a href="https://pin.it/6A4oJfzQ8">
+                    <img src="/icons/pinterest.png" alt="Pinterest">
+                </a>
+            </div>
+            <div class="footer-credit">
+                <p>© Copyright 2025 Hannah Liu</p>
+            </div>
+        </footer>
+        <script src="/js/nav.js"></script>
+        <script type="module" src="/js/comments.js"></script>
+    
+
+</body></html>
