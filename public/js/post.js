@@ -123,10 +123,10 @@ async function showPost(post) {
                                     <pre class="quote-text">${quote.slice(5)}</pre>`;
             blockquote.classList.add("quote");
             container.appendChild(blockquote);
-        } else if (block.startsWith("CODE")) {         // blockquote
+        } else if (block.startsWith("CODE")) {         // code
             const pre = document.createElement("pre");
             const code = document.createElement("code");
-            code.innerHTML = block.slice(4);
+            code.textContent = block.slice(4);
             pre.classList.add("pre-code");
             pre.appendChild(code);
             container.appendChild(pre);

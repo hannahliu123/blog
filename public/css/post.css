@@ -216,9 +216,12 @@ hr {
     border-radius: 5px;
     padding: 15px;
     font-size: 0.9rem;
+    overflow-x: auto;
+    white-space: pre;
 }
 
-.code {
+.pre-code code {
+    font-family: 'Courier New', Courier, monospace;
     margin: 0 1px;
     color: var(--code-text);
     font-size: 0.9rem;
