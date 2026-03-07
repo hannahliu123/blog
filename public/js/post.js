@@ -135,7 +135,7 @@ async function showPost(post) {
             const items = block.slice(5).trim().split('\n');
             items.forEach(item => {
                 const li = document.createElement("li");
-                li.textContent = item.trim();
+                li.innerHTML = item.trim();
                 ul.appendChild(li);
             });
             container.appendChild(ul);
