@@ -209,10 +209,11 @@ hr {
 }
 
 .pre-code {
-    width: 100%;
+    font-family: 'Courier New', Courier, monospace;
     border: 1px solid var(--text);
     background-color: var(--code-bg);
     color: var(--code-text);
+    width: 100%;
     border-radius: 5px;
     padding: 15px;
     font-size: 0.9rem;
@@ -220,7 +221,7 @@ hr {
     white-space: pre;
 }
 
-.pre-code code {
+.code {
     font-family: 'Courier New', Courier, monospace;
     margin: 0 1px;
     color: var(--code-text);
