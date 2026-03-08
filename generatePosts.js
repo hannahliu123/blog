@@ -10,7 +10,7 @@ const credentials = {
 admin.initializeApp(credentials);
 const db = admin.firestore();
 const postsFolder = "./public/posts/";
-const postIDs = ["bitwise-operators"];  // set to whatever post id you want to update
+const postIDs = ["post_name"];  // set to whatever post id you want to update
 
 async function getPostIDs() {
     const snapshot = await db.collection("posts").get();
