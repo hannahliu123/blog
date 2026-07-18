@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/hannahliu123/blog#readme",
   "dependencies": {
-    "firebase-admin": "^13.4.0",
+    "firebase-admin": "^13.10.0",
     "puppeteer": "^24.15.0"
   }
 }
