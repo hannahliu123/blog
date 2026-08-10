@@ -51,6 +51,7 @@ async function showPost(post) {
 
     let metaDesc = document.querySelector('meta[name="description"]');  // description
     let previewText = post.content[0];
+    if (previewText.length === 0 || previewText.startsWith("/blog-photos/")) previewText = post.content[1];
     const words = previewText.split(" ");
     previewText = words.slice(0, 30).join(" ");
     metaDesc.content = previewText;

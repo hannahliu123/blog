@@ -36,7 +36,7 @@ async function createPosts() {
         console.log(`Generating snapshot for post: ${id}...`);
 
         await page.goto(url, {
-            waitUntil: "networkidle0",
+            waitUntil: "networkidle2",
             timeout: 120000     // 2 mins
         });    // Wait for network to be idle (fully loaded)
 
